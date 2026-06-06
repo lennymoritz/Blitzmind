@@ -41,6 +41,7 @@ export const games = [
     icon: "CO",
     lastPlayed: "2h ago",
     accent: "#ff3344",
+    cover: "/games/crucible-ops.svg",
   },
   {
     id: "rift-runners",
@@ -49,6 +50,7 @@ export const games = [
     icon: "RR",
     lastPlayed: "Yesterday",
     accent: "#4a90ff",
+    cover: "/games/rift-runners.svg",
   },
   {
     id: "vector-strike",
@@ -57,6 +59,7 @@ export const games = [
     icon: "VS",
     lastPlayed: "3 days ago",
     accent: "#6ee7b7",
+    cover: "/games/vector-strike.svg",
   },
 ] as const;
 

@@ -141,12 +141,9 @@ function DeviceCard({
 
   return (
     <div
-      className="rounded-lg border p-5 transition-all"
+      className="glass-panel p-5 transition-all"
       style={{
-        background: "var(--color-app-surface)",
-        borderColor: isPaired
-          ? "var(--color-calm)"
-          : "var(--color-app-line-strong)",
+        borderColor: isPaired ? "var(--color-calm)" : undefined,
       }}
     >
       <div className="flex items-center gap-4">

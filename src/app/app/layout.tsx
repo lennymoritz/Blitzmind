@@ -20,7 +20,7 @@ export default function AppLayout({
       style={{ background: "var(--color-app-bg)" }}
     >
       <AppSidebar />
-      <div className="ml-[240px] min-h-screen">{children}</div>
+      <div className="lg:ml-[240px] min-h-screen pt-14 lg:pt-0">{children}</div>
     </div>
   );
 }

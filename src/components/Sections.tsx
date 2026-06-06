@@ -3,6 +3,8 @@
 import { LiveValue } from "./LiveValue";
 import { InGameFrame } from "./InGameFrame";
 import { HardwareRender } from "./HardwareRender";
+import { Reveal } from "./Reveal";
+import { ParallaxController } from "./ParallaxController";
 
 // ============================================================
 // Shared atoms
@@ -35,21 +37,27 @@ export function ProblemSection() {
       id="problem"
       className="relative py-32 lg:py-44 border-t border-line"
     >
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        <SectionLabel num="01">The problem</SectionLabel>
+      <ParallaxController align="right" opacity={0.05} scale={1.15} distance={70} />
+      <div className="relative mx-auto max-w-[1200px] px-6 lg:px-10">
+        <Reveal><SectionLabel num="01">The problem</SectionLabel></Reveal>
 
+        <Reveal delay={0.05}>
         <h2 className="mt-12 font-display tracking-[-0.02em] leading-[1.02] text-[clamp(2.25rem,6vw,5rem)] max-w-5xl">
           Your hands sweat. Your grip tightens. Your aim drifts.{" "}
           <span className="text-fg-mute italic font-light">
             And the game has no idea.
           </span>
         </h2>
+        </Reveal>
 
+        <Reveal delay={0.1}>
         <p className="mt-12 max-w-2xl text-fg-dim text-lg leading-relaxed">
           Competitive players already pay the cost of stress — slower reaction time, worse decisions, missed shots. They don&rsquo;t need another wellness app telling them to breathe. They need the game to respond to the body that&rsquo;s playing it.
         </p>
+        </Reveal>
 
         {/* Stat row — biometric callouts as if pulled from a live session */}
+        <Reveal delay={0.15}>
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-px bg-line">
           <StatCard
             label="Reaction time, stressed"
@@ -67,6 +75,7 @@ export function ProblemSection() {
             sub="During Gulag fight (Warzone)"
           />
         </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -106,12 +115,15 @@ export function SystemIntro() {
       className="relative pt-32 lg:pt-44 pb-16 border-t border-line"
     >
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        <SectionLabel num="02">The system</SectionLabel>
+        <Reveal><SectionLabel num="02">The system</SectionLabel></Reveal>
 
+        <Reveal delay={0.05}>
         <h2 className="mt-12 font-display tracking-[-0.02em] leading-[1.02] text-[clamp(2.25rem,6vw,5rem)] max-w-4xl">
           Three loops, one controller.
         </h2>
+        </Reveal>
 
+        <Reveal delay={0.1}>
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-px bg-line border border-line">
           <PillarCard
             num="Sense"
@@ -129,6 +141,7 @@ export function SystemIntro() {
             description="Every session becomes data. See where stress hits, which maps cost you, what your peak performance window looks like. Then adjust."
           />
         </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -197,10 +210,12 @@ export function AnalyzeSectionWrapper({ children }: { children: React.ReactNode 
           </div>
         </div>
 
+        <Reveal delay={0.05}>
         <h3 className="mb-12 font-display tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,3.5rem)] max-w-3xl">
           Every match becomes data.{" "}
           <span className="text-fg-mute italic font-light">Including the bad ones.</span>
         </h3>
+        </Reveal>
 
         {children}
       </div>
@@ -219,8 +234,9 @@ export function InGameSection() {
       className="relative py-32 lg:py-44 border-t border-line bg-surface/30"
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <SectionLabel num="03">In the game</SectionLabel>
+        <Reveal><SectionLabel num="03">In the game</SectionLabel></Reveal>
 
+        <Reveal delay={0.05}>
         <h2 className="mt-12 font-display tracking-[-0.02em] leading-[1.02] text-[clamp(2.25rem,6vw,5rem)] max-w-4xl">
           The overlay you don&rsquo;t have to look at.
         </h2>
@@ -228,6 +244,7 @@ export function InGameSection() {
         <p className="mt-10 max-w-2xl text-fg-dim text-lg leading-relaxed">
           A slim rail on the edge of your screen. Real-time HRV. Adaptive toggles you set once and forget. It stays out of your way until your body asks for help.
         </p>
+        </Reveal>
 
         <div className="mt-16">
           <InGameFrame />
@@ -248,10 +265,10 @@ export function HardwareSection() {
       className="relative py-32 lg:py-44 border-t border-line"
     >
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        <SectionLabel num="04">The hardware</SectionLabel>
+        <Reveal><SectionLabel num="04">The hardware</SectionLabel></Reveal>
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          <div>
+          <Reveal delay={0.05}>
             <h2 className="font-display tracking-[-0.02em] leading-[1.02] text-[clamp(2.25rem,5vw,4rem)]">
               Built, not just designed.
             </h2>
@@ -281,7 +298,7 @@ export function HardwareSection() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           {/* Real controller render with annotated sensor positions */}
           <HardwareRender />
@@ -302,13 +319,17 @@ export function IntegritySection() {
       id="integrity"
       className="relative py-32 lg:py-44 border-t border-line bg-surface/20"
     >
-      <div className="mx-auto max-w-[1000px] px-6 lg:px-10">
-        <SectionLabel num="05">Integrity</SectionLabel>
+      <ParallaxController align="center" opacity={0.06} scale={1.05} distance={80} />
+      <div className="relative mx-auto max-w-[1000px] px-6 lg:px-10">
+        <Reveal><SectionLabel num="05">Integrity</SectionLabel></Reveal>
 
+        <Reveal delay={0.05}>
         <h2 className="mt-12 font-display tracking-[-0.02em] leading-[1.02] text-[clamp(2rem,5vw,4rem)] max-w-3xl">
           Two modes. One built for training. One built for tournament.
         </h2>
+        </Reveal>
 
+        <Reveal delay={0.1}>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-line border border-line">
           <ModeCard
             mode="Training"
@@ -322,6 +343,7 @@ export function IntegritySection() {
             muted
           />
         </div>
+        </Reveal>
 
         <p className="mt-12 max-w-2xl text-fg-mute text-sm leading-relaxed">
           We treat competitive fairness as a constraint, not an afterthought. If a tournament organizer needs a specific mode, the controller supports it at the firmware level — no setting to forget, no profile to switch.
@@ -369,14 +391,18 @@ export function StorySection() {
       id="story"
       className="relative py-32 lg:py-44 border-t border-line"
     >
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
-        <SectionLabel num="06">The story</SectionLabel>
+      <ParallaxController align="left" opacity={0.05} scale={1.1} distance={75} />
+      <div className="relative mx-auto max-w-[1200px] px-6 lg:px-10">
+        <Reveal><SectionLabel num="06">The story</SectionLabel></Reveal>
 
+        <Reveal delay={0.05}>
         <h2 className="mt-12 font-display tracking-[-0.02em] leading-[1.02] text-[clamp(2.25rem,6vw,5rem)] max-w-4xl">
           We almost built a wellness app.{" "}
           <span className="text-fg-mute italic font-light">Then we asked the players.</span>
         </h2>
+        </Reveal>
 
+        <Reveal delay={0.1}>
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-px bg-line border border-line">
           <StoryCard
             phase="01 — Origin"
@@ -394,6 +420,7 @@ export function StorySection() {
             body="We stopped trying to fix the player. We started adapting the game. Stress became a performance signal — input to a system that adjusted around the player rather than against them."
           />
         </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -444,7 +471,9 @@ export function Footer() {
               hello@blitzmind.example
             </a>
             <a
-              href="#"
+              href="https://dhruvdeva.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block text-fg-dim hover:text-fg transition-colors text-sm"
             >
               Portfolio →

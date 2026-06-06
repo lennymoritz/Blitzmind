@@ -1,315 +1,233 @@
 "use client";
 
-import { motion } from "motion/react";
+import Image from "next/image";
+import { motion, useReducedMotion } from "motion/react";
 
 /**
- * HardwareRender — stylized top-down SVG controller silhouette with
- * annotated sensor positions. Designed to read as an industrial-design
- * diagram, not a product photo. The diagram aesthetic is intentional —
- * makes the hardware feel engineered, not styled.
+ * HardwareRender — the real controller render (public/controller-front.png)
+ * with an engineered markup overlay calling out the four sensor positions.
  *
- * Callouts use a "technical drawing" line + dot pattern, similar to what
- * you'd see in a patent diagram or product spec sheet.
+ * The photo reads as a product; the overlay reads as a spec sheet. Callout
+ * leads draw in on a staggered timeline (Linear-style reveal); the PPG node
+ * carries a live heartbeat ping so the hardware feels like it's sensing.
+ * Everything resolves to a clean static state under prefers-reduced-motion.
+ *
+ * Overlay coordinate space matches the image's natural size (900×594), and
+ * the container shares that aspect ratio, so markup positions map 1:1 to the
+ * render at any width.
  */
+
+const ACCENT = "var(--color-accent)";
+const CALM = "var(--color-calm)";
+
 export function HardwareRender() {
+  const reduce = useReducedMotion() ?? false;
+
   return (
-    <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-line bg-surface/40">
-      {/* Subtle grid backdrop — gives it the "blueprint" feel */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, var(--color-fg) 1px, transparent 1px), linear-gradient(to bottom, var(--color-fg) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
+    <div className="relative aspect-[900/594] w-full rounded-lg overflow-hidden border border-line bg-surface/40">
+      {/* Real product render */}
+      <Image
+        src="/controller-front.png"
+        alt="BlitzMind controller, front view"
+        fill
+        sizes="(max-width: 1024px) 100vw, 600px"
+        className="object-cover"
+        priority={false}
       />
 
-      {/* Soft radial behind the controller */}
+      {/* faint top accent wash to seat the render into the section */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 45%, rgba(255,59,59,0.08), transparent 60%)",
+            "radial-gradient(120% 80% at 50% -8%, rgba(255,59,59,0.07), transparent 55%)",
         }}
       />
 
+      {/* Markup overlay — shares the image's 900×594 space */}
       <svg
         className="absolute inset-0 w-full h-full"
-        viewBox="0 0 400 540"
+        viewBox="0 0 900 594"
         preserveAspectRatio="xMidYMid meet"
-        aria-label="BlitzMind controller, top-down view with sensor positions annotated"
+        aria-hidden="true"
       >
-        <defs>
-          {/* Controller body fill — subtle gradient */}
-          <linearGradient id="bodyFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#28282e" />
-            <stop offset="50%" stopColor="#1f1f24" />
-            <stop offset="100%" stopColor="#17171c" />
-          </linearGradient>
-          <linearGradient id="gripFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#2e2e34" />
-            <stop offset="100%" stopColor="#191920" />
-          </linearGradient>
-          {/* Pulse ring for sensor markers */}
-          <radialGradient id="sensorGlow">
-            <stop offset="0%" stopColor="#ff3b3b" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#ff3b3b" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-
-        {/* ============ CONTROLLER BODY ============ */}
-        {/* Top crescent — main shell */}
-        <path
-          d="M 80 200
-             Q 80 130, 160 130
-             L 240 130
-             Q 320 130, 320 200
-             L 320 240
-             Q 320 280, 300 295
-             L 270 310
-             Q 250 318, 230 318
-             L 170 318
-             Q 150 318, 130 310
-             L 100 295
-             Q 80 280, 80 240 Z"
-          fill="url(#bodyFill)"
-          stroke="#3a3a44"
-          strokeWidth="0.8"
-        />
-
-        {/* Grips — left + right */}
-        <path
-          d="M 80 240
-             Q 60 280, 70 340
-             Q 80 400, 130 420
-             Q 165 425, 145 380
-             Q 135 350, 130 310
-             Q 110 305, 95 295 Z"
-          fill="url(#gripFill)"
-          stroke="#3a3a44"
-          strokeWidth="0.8"
-        />
-        <path
-          d="M 320 240
-             Q 340 280, 330 340
-             Q 320 400, 270 420
-             Q 235 425, 255 380
-             Q 265 350, 270 310
-             Q 290 305, 305 295 Z"
-          fill="url(#gripFill)"
-          stroke="#3a3a44"
-          strokeWidth="0.8"
-        />
-
-        {/* Grip texture lines */}
-        {[0, 1, 2, 3, 4].map((i) => (
-          <g key={i} opacity="0.4">
-            <line
-              x1={88 + i * 6}
-              x2={94 + i * 6}
-              y1={350 + i * 4}
-              y2={380 + i * 4}
-              stroke="#4a4a54"
-              strokeWidth="0.6"
-            />
-            <line
-              x1={306 - i * 6}
-              x2={312 - i * 6}
-              y1={350 + i * 4}
-              y2={380 + i * 4}
-              stroke="#4a4a54"
-              strokeWidth="0.6"
-            />
-          </g>
-        ))}
-
-        {/* D-pad */}
-        <g transform="translate(125, 220)">
-          <rect x="-3" y="-12" width="6" height="24" rx="1" fill="#0e0e12" stroke="#3a3a44" strokeWidth="0.4" />
-          <rect x="-12" y="-3" width="24" height="6" rx="1" fill="#0e0e12" stroke="#3a3a44" strokeWidth="0.4" />
-        </g>
-
-        {/* Right face buttons (Y/X/A/B layout) */}
-        {[
-          [275, 205, "#ff6b6b"],
-          [260, 220, "#fbbf24"],
-          [290, 220, "#6ee7b7"],
-          [275, 235, "#7fb1ff"],
-        ].map(([x, y, c], i) => (
-          <circle
-            key={i}
-            cx={x as number}
-            cy={y as number}
-            r="5"
-            fill="#0e0e12"
-            stroke={c as string}
-            strokeWidth="0.8"
-            opacity="0.85"
-          />
-        ))}
-
-        {/* Sticks */}
-        <g transform="translate(165, 265)">
-          <circle r="14" fill="#0e0e12" stroke="#3a3a44" strokeWidth="0.8" />
-          <circle r="9" fill="#1a1a20" />
-          <circle r="4" cx="0" cy="0" fill="#28282e" />
-        </g>
-        <g transform="translate(235, 265)">
-          <circle r="14" fill="#0e0e12" stroke="#3a3a44" strokeWidth="0.8" />
-          <circle r="9" fill="#1a1a20" />
-          <circle r="4" cx="0" cy="0" fill="#28282e" />
-        </g>
-
-        {/* Light bar across the top */}
-        <rect x="140" y="135" width="120" height="2" rx="1" fill="#ff3b3b" opacity="0.45" />
-        <rect x="140" y="135" width="120" height="2" rx="1" fill="#ff3b3b" opacity="0.65" className="flicker" />
-
-        {/* Center logo dot */}
-        <text
-          x="200"
-          y="296"
-          fontSize="8"
-          fontFamily="var(--font-mono)"
-          fill="#6a6a74"
-          textAnchor="middle"
-          letterSpacing="0.25em"
-        >
-          BLITZMIND
-        </text>
-
-        {/* ============ SENSOR MARKERS WITH CALLOUT LINES ============ */}
-        {/* Each marker: pulsing dot + line to off-controller label */}
-
-        {/* Marker: PPG / HRV — on the right grip top */}
-        <SensorMarker
-          dotX={290}
-          dotY={310}
-          lineEndX={395}
-          lineEndY={310}
-          labelX={395}
-          labelY={310}
-          label="01 · PPG"
-          sub="HRV"
-          anchor="end"
-        />
-
-        {/* Marker: Grip pressure — left grip middle */}
-        <SensorMarker
-          dotX={108}
-          dotY={355}
-          lineEndX={5}
-          lineEndY={355}
-          labelX={5}
-          labelY={355}
-          label="02 · FSR"
-          sub="Grip pressure"
+        {/* 01 · PPG — right grip, live */}
+        <Callout
+          i={0}
+          reduce={reduce}
+          color={CALM}
+          live
+          line="M 652 398 L 836 398"
+          dot={[652, 398]}
+          end={[836, 398]}
           anchor="start"
+          tx={840}
+          numY={394}
+          subY={411}
+          num="01 · PPG"
+          sub="HRV"
         />
-
-        {/* Marker: IMU — top center under light bar */}
-        <SensorMarker
-          dotX={200}
-          dotY={155}
-          lineEndX={200}
-          lineEndY={55}
-          labelX={200}
-          labelY={60}
-          label="03 · BNO055"
+        {/* 02 · FSR — left grip */}
+        <Callout
+          i={1}
+          reduce={reduce}
+          color={ACCENT}
+          line="M 250 398 L 64 398"
+          dot={[250, 398]}
+          end={[64, 398]}
+          anchor="end"
+          tx={60}
+          numY={394}
+          subY={411}
+          num="02 · FSR"
+          sub="Grip pressure"
+        />
+        {/* 03 · BNO055 — top centre, near light bar */}
+        <Callout
+          i={2}
+          reduce={reduce}
+          color={ACCENT}
+          line="M 450 168 L 450 80"
+          dot={[450, 168]}
+          end={[450, 80]}
+          anchor="middle"
+          tx={450}
+          numY={62}
+          subY={76}
+          num="03 · BNO055"
           sub="9-axis IMU"
-          anchor="middle"
         />
-
-        {/* Marker: ESP32 — center bottom */}
-        <SensorMarker
-          dotX={200}
-          dotY={285}
-          lineEndX={200}
-          lineEndY={510}
-          labelX={200}
-          labelY={518}
-          label="04 · ESP32"
-          sub="Compute · BLE"
+        {/* 04 · ESP32 — centre body */}
+        <Callout
+          i={3}
+          reduce={reduce}
+          color={ACCENT}
+          line="M 450 348 L 450 524"
+          dot={[450, 348]}
+          end={[450, 524]}
           anchor="middle"
+          tx={450}
+          numY={544}
+          subY={560}
+          num="04 · ESP32"
+          sub="Compute · BLE"
         />
       </svg>
 
-      {/* Bottom-right footer label */}
-      <div className="absolute bottom-4 right-4 text-[9px] uppercase tracking-[0.22em] font-mono text-fg-mute">
-        Top view · DV.01
-      </div>
+      {/* Corner labels */}
       <div className="absolute top-4 left-4 text-[9px] uppercase tracking-[0.22em] font-mono text-fg-mute">
         BlitzMind controller
+      </div>
+      <div className="absolute bottom-4 right-4 text-[9px] uppercase tracking-[0.22em] font-mono text-fg-mute">
+        Front · DV.01
       </div>
     </div>
   );
 }
 
-function SensorMarker({
-  dotX,
-  dotY,
-  lineEndX,
-  lineEndY,
-  labelX,
-  labelY,
-  label,
-  sub,
+function Callout({
+  i,
+  reduce,
+  color,
+  live = false,
+  line,
+  dot,
+  end,
   anchor,
+  tx,
+  numY,
+  subY,
+  num,
+  sub,
 }: {
-  dotX: number;
-  dotY: number;
-  lineEndX: number;
-  lineEndY: number;
-  labelX: number;
-  labelY: number;
-  label: string;
-  sub: string;
+  i: number;
+  reduce: boolean;
+  color: string;
+  live?: boolean;
+  line: string;
+  dot: [number, number];
+  end: [number, number];
   anchor: "start" | "middle" | "end";
+  tx: number;
+  numY: number;
+  subY: number;
+  num: string;
+  sub: string;
 }) {
-  // Approximate the label position offset based on anchor
-  const labelDx = anchor === "middle" ? 0 : anchor === "end" ? -4 : 4;
-  // Label sits next to the line end; sub goes underneath
+  const delay = reduce ? 0 : 0.5 + i * 0.16;
+
   return (
-    <g>
-      {/* Pulse glow */}
-      <circle cx={dotX} cy={dotY} r="8" fill="url(#sensorGlow)" className="heartbeat" />
-      {/* Dot */}
-      <circle cx={dotX} cy={dotY} r="2" fill="#ff3b3b" />
-      <circle cx={dotX} cy={dotY} r="3.5" fill="none" stroke="#ff3b3b" strokeWidth="0.6" opacity="0.7" />
-      {/* Line to label */}
-      <line
-        x1={dotX}
-        y1={dotY}
-        x2={lineEndX}
-        y2={lineEndY}
-        stroke="#5a5a64"
-        strokeWidth="0.5"
-        strokeDasharray="2 2"
+    <motion.g
+      initial={{ opacity: reduce ? 1 : 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay, duration: 0.5 }}
+      style={{ cursor: "default" }}
+      whileHover="hover"
+    >
+      {/* connector lead */}
+      <motion.path
+        d={line}
+        fill="none"
+        stroke={color}
+        strokeWidth={1.2}
+        strokeOpacity={0.8}
+        initial={{ pathLength: reduce ? 1 : 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ delay, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        variants={{ hover: { strokeOpacity: 1, strokeWidth: 1.6 } }}
       />
-      {/* End cap */}
-      <circle cx={lineEndX} cy={lineEndY} r="1.5" fill="#ff3b3b" />
-      {/* Labels — drawn just past the line end */}
+      {/* end dot */}
+      <circle cx={end[0]} cy={end[1]} r={2.4} fill={color} />
+
+      {/* sensor node */}
+      <circle cx={dot[0]} cy={dot[1]} r={10} fill="none" stroke={color} strokeOpacity={0.3} />
+      {live && !reduce && (
+        <motion.circle
+          cx={dot[0]}
+          cy={dot[1]}
+          r={6}
+          fill="none"
+          stroke={color}
+          strokeWidth={1.5}
+          initial={{ scale: 0.5, opacity: 0.7 }}
+          animate={{ scale: 2.6, opacity: 0 }}
+          transition={{ duration: 0.95, repeat: Infinity, ease: "easeOut" }}
+          style={{ transformOrigin: `${dot[0]}px ${dot[1]}px` }}
+        />
+      )}
+      <motion.circle
+        cx={dot[0]}
+        cy={dot[1]}
+        r={4}
+        fill={color}
+        variants={{ hover: { scale: 1.4 } }}
+        style={{ transformOrigin: `${dot[0]}px ${dot[1]}px` }}
+      />
+
+      {/* labels */}
       <text
-        x={labelX + labelDx}
-        y={labelY - 4}
-        fontSize="8"
-        fontFamily="var(--font-mono)"
-        fill="#ededee"
+        x={tx}
+        y={numY}
         textAnchor={anchor}
-        letterSpacing="0.1em"
+        fontFamily="var(--font-mono)"
+        fontSize="14"
+        letterSpacing="1"
+        fontWeight={600}
+        fill="var(--color-fg)"
       >
-        {label.toUpperCase()}
+        {num}
       </text>
       <text
-        x={labelX + labelDx}
-        y={labelY + 7}
-        fontSize="7"
-        fontFamily="var(--font-mono)"
-        fill="#a3a3aa"
+        x={tx}
+        y={subY}
         textAnchor={anchor}
-        letterSpacing="0.06em"
+        fontFamily="var(--font-mono)"
+        fontSize="11"
+        letterSpacing="0.5"
+        fill="var(--color-fg-mute)"
       >
         {sub}
       </text>
-    </g>
+    </motion.g>
   );
 }

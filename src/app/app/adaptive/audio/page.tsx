@@ -31,7 +31,7 @@ export default function AudioTab() {
   const [cuePriority, setCuePriority] = useState(true);
 
   return (
-    <div className="px-8 py-8 max-w-[1600px] space-y-6">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1600px] space-y-6">
       <Panel title="Trigger" subtitle="When audio adaptations fire">
         <TriggerConfig value={trigger} onChange={setTrigger} />
       </Panel>

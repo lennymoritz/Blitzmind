@@ -40,14 +40,14 @@ export function AppHeader({
 }) {
   return (
     <div
-      className="border-b sticky top-0 z-30 backdrop-blur-md"
+      className="border-b sticky top-14 lg:top-0 z-30 backdrop-blur-md"
       style={{
         background: "rgba(11, 11, 13, 0.85)",
         borderColor: "var(--color-app-line)",
       }}
     >
       {/* Title row */}
-      <div className="h-16 px-8 flex items-center justify-between gap-6">
+      <div className="min-h-16 px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4 flex-wrap">
         <div className="min-w-0">
           {eyebrow && (
             <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute mb-1">
@@ -74,7 +74,7 @@ export function AppHeader({
       {/* Tabs row — only renders if tabs provided */}
       {tabs && tabs.length > 0 && (
         <LayoutGroup id="app-header-tabs">
-          <div className="px-8 flex items-center gap-1 -mb-px">
+          <div className="px-4 sm:px-6 lg:px-8 flex items-center gap-1 -mb-px overflow-x-auto no-scrollbar">
             {tabs.map((tab) => (
               <Link
                 key={tab.href}

@@ -95,13 +95,7 @@ export default function CalibratePage() {
       </div>
 
       {/* Live trace + readouts */}
-      <div
-        className="rounded-lg border p-6"
-        style={{
-          background: "var(--color-app-surface)",
-          borderColor: "var(--color-app-line)",
-        }}
-      >
+      <div className="glass-panel p-6">
         {/* Top row: status + countdown */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] font-mono">

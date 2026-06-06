@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="g" cx="68%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#ff3344" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#ff3344" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ff3344" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="#120a0c"/>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <!-- scanlines -->
+  <g stroke="#ff5a4e" stroke-width="1" opacity="0.12">
+    <line x1="0" y1="60" x2="800" y2="60"/><line x1="0" y1="120" x2="800" y2="120"/>
+    <line x1="0" y1="180" x2="800" y2="180"/><line x1="0" y1="240" x2="800" y2="240"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="0" y1="420" x2="800" y2="420"/>
+  </g>
+  <!-- reticle -->
+  <g transform="translate(540 200)" stroke="#ff5a4e" fill="none" opacity="0.8">
+    <circle r="92" stroke-width="2"/>
+    <circle r="58" stroke-width="1.5" opacity="0.6"/>
+    <line x1="-120" y1="0" x2="-30" y2="0" stroke-width="2"/>
+    <line x1="30" y1="0" x2="120" y2="0" stroke-width="2"/>
+    <line x1="0" y1="-120" x2="0" y2="-30" stroke-width="2"/>
+    <line x1="0" y1="30" x2="0" y2="120" stroke-width="2"/>
+    <circle r="4" fill="#ff5a4e"/>
+  </g>
+  <!-- hazard corner -->
+  <g opacity="0.18" fill="#ff5a4e">
+    <path d="M0 440 L40 440 L0 480 Z"/><path d="M50 450 L90 450 L40 500 L0 500 Z"/>
+    <path d="M100 460 L140 460 L90 500 L50 500 Z"/>
+  </g>
+</svg>

@@ -54,7 +54,7 @@ export default function WeaponsTab() {
   const stableCount = Object.values(assignments).filter((s) => s === "stable").length;
 
   return (
-    <div className="px-8 py-8 max-w-[1600px] space-y-6">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1600px] space-y-6">
       <Panel title="Trigger" subtitle="When the swap fires">
         <TriggerConfig value={trigger} onChange={setTrigger} />
       </Panel>

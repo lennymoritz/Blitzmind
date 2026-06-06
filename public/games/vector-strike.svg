@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="g" cx="60%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#6ee7b7" stop-opacity="0.5"/>
+      <stop offset="55%" stop-color="#6ee7b7" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#6ee7b7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="#0a1410"/>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <!-- targeting grid -->
+  <g stroke="#6ee7b7" stroke-width="1" opacity="0.14">
+    <line x1="100" y1="0" x2="100" y2="500"/><line x1="250" y1="0" x2="250" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/><line x1="550" y1="0" x2="550" y2="500"/>
+    <line x1="700" y1="0" x2="700" y2="500"/>
+    <line x1="0" y1="120" x2="800" y2="120"/><line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="380" x2="800" y2="380"/>
+  </g>
+  <!-- vector wireframe target -->
+  <g transform="translate(540 220)" fill="none" stroke="#86f0c8" opacity="0.85">
+    <path d="M0 -80 L70 0 L0 80 L-70 0 Z" stroke-width="2"/>
+    <path d="M0 -44 L38 0 L0 44 L-38 0 Z" stroke-width="1.5" opacity="0.6"/>
+    <line x1="-110" y1="0" x2="-70" y2="0" stroke-width="2"/>
+    <line x1="70" y1="0" x2="110" y2="0" stroke-width="2"/>
+    <circle r="3" fill="#86f0c8"/>
+  </g>
+</svg>

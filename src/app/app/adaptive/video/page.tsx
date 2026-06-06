@@ -39,7 +39,7 @@ export default function VideoTab() {
   ) => setSettings((s) => ({ ...s, [key]: value }));
 
   return (
-    <div className="px-8 py-8 max-w-[1600px]">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1600px]">
       <div className="grid grid-cols-1 xl:grid-cols-[1fr_1fr] gap-8">
         {/* ============ LEFT: configuration ============ */}
         <div className="space-y-6">

@@ -70,7 +70,7 @@ export default function SessionDetailPage({ params }: PageProps) {
         }
       />
 
-      <div className="px-8 py-8 max-w-[1400px]">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1400px]">
         {/* ============ HERO: result + highlight ============ */}
         <section className="mb-10">
           <div className="flex items-start gap-6">

@@ -69,7 +69,7 @@ export default function SessionsPage() {
         }
       />
 
-      <div className="px-8 py-8 max-w-[1400px]">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1400px]">
         <section className="mb-8">
           <StaggerChildren
             className="rounded-lg border grid grid-cols-2 md:grid-cols-5 gap-px overflow-hidden"

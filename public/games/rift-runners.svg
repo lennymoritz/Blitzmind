@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="g" cx="62%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#4a90ff" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#4a90ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#4a90ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="#0a0e16"/>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <!-- rift rings -->
+  <g transform="translate(540 230)" fill="none" stroke="#6aa6ff">
+    <ellipse rx="150" ry="120" stroke-width="2" opacity="0.8"/>
+    <ellipse rx="110" ry="86" stroke-width="1.5" opacity="0.5"/>
+    <ellipse rx="70" ry="52" stroke-width="1.5" opacity="0.3"/>
+  </g>
+  <!-- speed streaks -->
+  <g stroke="#6aa6ff" stroke-linecap="round">
+    <line x1="40" y1="120" x2="260" y2="120" stroke-width="3" opacity="0.5"/>
+    <line x1="20" y1="180" x2="200" y2="180" stroke-width="2" opacity="0.35"/>
+    <line x1="60" y1="240" x2="320" y2="240" stroke-width="3" opacity="0.45"/>
+    <line x1="30" y1="320" x2="220" y2="320" stroke-width="2" opacity="0.3"/>
+    <line x1="50" y1="380" x2="180" y2="380" stroke-width="2" opacity="0.25"/>
+  </g>
+</svg>

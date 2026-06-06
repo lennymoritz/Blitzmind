@@ -4,10 +4,14 @@ import { motion } from "motion/react";
 import { CalmGauge } from "./CalmGauge";
 import { EcgLine } from "./EcgLine";
 import { LiveValue } from "./LiveValue";
+import { ParallaxController } from "./ParallaxController";
 
 export function Hero() {
   return (
     <section className="relative pt-32 pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
+      {/* Controller drifting behind the hero, anchored to the gauge side */}
+      <ParallaxController align="right" opacity={0.1} scale={1.25} distance={60} />
+
       {/* Background atmospheric — soft radial behind the gauge */}
       <div
         className="absolute right-0 top-0 w-[60vw] h-[80vh] pointer-events-none"

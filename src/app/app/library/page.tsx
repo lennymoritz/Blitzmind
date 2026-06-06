@@ -67,7 +67,7 @@ export default function LibraryPage() {
         </LayoutGroup>
       </div>
 
-      <div className="px-8 py-8 max-w-[1400px]">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1400px]">
         {tab === "modes" && <ModesView />}
         {tab === "maps" && <MapsView />}
         {tab === "weapons" && <WeaponsView />}

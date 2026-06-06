@@ -121,7 +121,7 @@ export default function LiveMatchPage() {
       {state === "pre" && <PreSessionHero onStart={() => setState("live")} />}
 
       {(state === "live" || state === "complete") && (
-        <div className="px-8 py-8 max-w-[1600px]">
+        <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1600px]">
           <div className="grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-6">
             <div className="space-y-6">
               <section className="rounded-lg border grid grid-cols-2 md:grid-cols-4 gap-px overflow-hidden"

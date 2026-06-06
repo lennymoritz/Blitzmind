@@ -98,13 +98,7 @@ export default function PreferencesPage() {
           title="Tournament mode"
           description="When enabled, BlitzMind only records — never adapts. Required for sanctioned competitive play."
         >
-          <div
-            className="rounded-lg border p-4 flex items-center gap-4"
-            style={{
-              background: "var(--color-app-surface)",
-              borderColor: "var(--color-app-line)",
-            }}
-          >
+          <div className="glass-panel p-4 flex items-center gap-4">
             <div
               className="w-10 h-10 rounded-md grid place-items-center shrink-0"
               style={{
@@ -151,7 +145,10 @@ function PrefSection({
   children: React.ReactNode;
 }) {
   return (
-    <section>
+    <section
+      className="ob-rise"
+      style={{ animationDelay: `${(parseInt(number, 10) - 1) * 0.1}s` }}
+    >
       <div className="flex items-baseline gap-3 mb-2">
         <span className="text-[10px] uppercase tracking-[0.24em] font-mono" style={{ color: "var(--color-app-accent)" }}>
           {number}
@@ -176,15 +173,8 @@ function GameCard({
   return (
     <button
       onClick={onSelect}
-      className="rounded-lg border p-4 text-left transition-all"
-      style={{
-        background: selected
-          ? "var(--color-app-surface-2)"
-          : "var(--color-app-surface)",
-        borderColor: selected
-          ? "var(--color-app-accent)"
-          : "var(--color-app-line)",
-      }}
+      data-selected={selected}
+      className="glass-card p-4 text-left w-full"
     >
       <div className="flex items-center gap-3">
         <div
@@ -237,15 +227,8 @@ function AggressivenessOption({
   return (
     <button
       onClick={onSelect}
-      className="rounded-lg border p-4 text-left transition-all"
-      style={{
-        background: selected
-          ? "var(--color-app-surface-2)"
-          : "var(--color-app-surface)",
-        borderColor: selected
-          ? "var(--color-app-accent)"
-          : "var(--color-app-line)",
-      }}
+      data-selected={selected}
+      className="glass-card p-4 text-left w-full"
     >
       <div className="flex items-center justify-between mb-2">
         <div className="text-sm font-medium text-fg">{data.label}</div>

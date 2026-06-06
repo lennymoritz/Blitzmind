@@ -56,7 +56,7 @@ export default function SettingsPage() {
         }
       />
 
-      <div className="px-8 py-8 max-w-[1100px] space-y-10">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1100px] space-y-10">
         {/* ============ PROFILE ============ */}
         <Section number="01" title="Profile" description="How you appear to teammates and on leaderboards.">
           <div

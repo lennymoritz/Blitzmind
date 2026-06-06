@@ -75,7 +75,7 @@ export default function MapsTab() {
   };
 
   return (
-    <div className="px-8 py-8 max-w-[1600px] space-y-6">
+    <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1600px] space-y-6">
       <div className="rounded-lg border p-5 flex items-start gap-4"
         style={{ background: "var(--color-app-surface)", borderColor: "var(--color-app-line)" }}>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="shrink-0 mt-0.5" aria-hidden>
