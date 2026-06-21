@@ -37,6 +37,15 @@
   --color-app-line: #26262e;
   --color-app-line-strong: #34343e;
 
+  /* Aliases consumed by AdaptivePreviewLauncher — mapped to the neutral
+     slate palette so the component inherits platform branding, not its
+     blue-navy fallbacks. */
+  --color-app-text: #ededee;
+  --color-app-text-mute: #a3a3aa;
+  --color-app-text-dim: #6b6b73;
+  --color-app-border: #26262e;
+  --color-app-border-strong: #34343e;
+
   /* App-specific accent — slightly more saturated red for UI affordances */
   --color-app-accent: #ff3344;
   --color-app-accent-hover: #ff4d5b;

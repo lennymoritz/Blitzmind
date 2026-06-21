@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { AppHeader, PrimaryButton, SecondaryButton } from "../_components/AppHeader";
+import AdaptivePreviewLauncher from "./_components/AdaptivePreviewLauncher";
 
 /**
  * Adaptive Control layout — shared header across all 5 sub-tabs.
@@ -49,6 +50,7 @@ export default function AdaptiveLayout({
         subtitle="How BlitzMind adapts your game when your physiology shifts"
         actions={
           <>
+            <AdaptivePreviewLauncher />
             <SecondaryButton>Reset</SecondaryButton>
             <PrimaryButton onClick={handleSave}>
               {savedAt ? "Saved ✓" : "Save changes"}
