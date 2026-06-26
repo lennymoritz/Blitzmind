@@ -1,41 +1,19 @@
-import { Nav } from "../components/Nav";
-import { Hero } from "../components/Hero";
-import { AdaptWidget } from "../components/AdaptWidget";
-import { AnalyzeWidget } from "../components/AnalyzeWidget";
-import { StressSpike } from "../components/StressSpike";
-import {
-  ProblemSection,
-  SystemIntro,
-  AdaptSectionWrapper,
-  AnalyzeSectionWrapper,
-  InGameSection,
-  HardwareSection,
-  IntegritySection,
-  StorySection,
-  Footer,
-} from "../components/Sections";
+"use client";
+
+import { useEffect } from "react";
+import marketingBody from "./_marketingBody";
+import { initMarketing } from "./_marketingScript";
+import "./marketing.css";
 
 export default function Home() {
+  useEffect(() => {
+    initMarketing();
+  }, []);
+
   return (
-    <div className="grain">
-      <Nav />
-      <StressSpike />
-      <main>
-        <Hero />
-        <ProblemSection />
-        <SystemIntro />
-        <AdaptSectionWrapper>
-          <AdaptWidget />
-        </AdaptSectionWrapper>
-        <AnalyzeSectionWrapper>
-          <AnalyzeWidget />
-        </AnalyzeSectionWrapper>
-        <InGameSection />
-        <HardwareSection />
-        <IntegritySection />
-        <StorySection />
-      </main>
-      <Footer />
-    </div>
+    <div
+      className="blitzmind-marketing"
+      dangerouslySetInnerHTML={{ __html: marketingBody }}
+    />
   );
 }
