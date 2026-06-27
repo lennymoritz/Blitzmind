@@ -42,7 +42,7 @@ export function AppHeader({
     <div
       className="border-b sticky top-14 lg:top-0 z-30 backdrop-blur-md"
       style={{
-        background: "rgba(11, 11, 13, 0.85)",
+        background: "rgba(8, 8, 10, 0.85)",
         borderColor: "var(--color-app-line)",
       }}
     >
@@ -55,7 +55,14 @@ export function AppHeader({
             </div>
           )}
           <div className="flex items-baseline gap-3">
-            <h1 className="text-xl font-medium text-fg tracking-tight truncate">
+            <h1
+              className="font-display font-medium text-fg truncate"
+              style={{
+                fontSize: "clamp(22px, 2.4vw, 30px)",
+                letterSpacing: "-0.025em",
+                lineHeight: 1.05,
+              }}
+            >
               {title}
             </h1>
             {subtitle && (

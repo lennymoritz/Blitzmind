@@ -29,8 +29,9 @@
 
   /* App-specific tokens — denser, more utilitarian than marketing site.
      The app uses these instead of the editorial values above.
-     Same palette family, different rhythm. */
-  --color-app-bg: #0b0b0d;
+     Same palette family, different rhythm. Bg matches marketing --color-base
+     so the marketing → onboarding → app transition is seamless. */
+  --color-app-bg: #08080a;
   --color-app-surface: #131318;
   --color-app-surface-2: #1a1a20;
   --color-app-surface-3: #22222a;

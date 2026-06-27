@@ -115,7 +115,7 @@ export default function SessionDetailPage({ params }: PageProps) {
         <section className="mb-10">
           <div className="flex items-baseline justify-between mb-4">
             <div>
-              <h3 className="text-lg font-medium tracking-tight">HRV timeline</h3>
+              <h3 className="text-lg font-display font-medium tracking-tight">HRV timeline</h3>
               <p className="text-xs text-fg-mute mt-0.5">
                 Full match · {timeline.points.length} samples · {match.stressEvents} stress events flagged
               </p>
@@ -199,7 +199,7 @@ export default function SessionDetailPage({ params }: PageProps) {
         <section className="mb-10">
           <div className="flex items-baseline justify-between mb-4">
             <div>
-              <h3 className="text-lg font-medium tracking-tight">Correlation insights</h3>
+              <h3 className="text-lg font-display font-medium tracking-tight">Correlation insights</h3>
               <p className="text-xs text-fg-mute mt-0.5">
                 Where physiology met outcome
               </p>
@@ -242,7 +242,7 @@ export default function SessionDetailPage({ params }: PageProps) {
 
         {/* ============ ADAPTIVE CONTROL FIRINGS ============ */}
         <section className="mb-10">
-          <h3 className="text-lg font-medium tracking-tight mb-4">
+          <h3 className="text-lg font-display font-medium tracking-tight mb-4">
             Adaptive Control firings
           </h3>
           <p className="text-xs text-fg-mute mb-4">

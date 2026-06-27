@@ -98,7 +98,7 @@ function ModesView() {
       {grouped.map((group) => (
         <section key={group.key}>
           <div className="mb-4">
-            <h3 className="text-lg font-medium tracking-tight">{group.label}</h3>
+            <h3 className="text-lg font-display font-medium tracking-tight">{group.label}</h3>
             <p className="text-xs text-fg-mute mt-0.5">{group.description}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -148,7 +148,7 @@ function MapsView() {
     <div>
       <div className="mb-4 flex items-baseline justify-between">
         <div>
-          <h3 className="text-lg font-medium tracking-tight">All maps</h3>
+          <h3 className="text-lg font-display font-medium tracking-tight">All maps</h3>
           <p className="text-xs text-fg-mute mt-0.5">
             {maps.length} maps · sorted by play rate
           </p>
@@ -246,7 +246,7 @@ function WeaponsView() {
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-lg font-medium tracking-tight">All weapons</h3>
+        <h3 className="text-lg font-display font-medium tracking-tight">All weapons</h3>
         <p className="text-xs text-fg-mute mt-0.5">
           {weapons.length} weapons across {classes.length} classes
         </p>

@@ -42,7 +42,7 @@ export function AppSidebar() {
       {/* Mobile top bar */}
       <div
         className="lg:hidden fixed top-0 inset-x-0 h-14 z-40 flex items-center justify-between px-4 border-b backdrop-blur-md"
-        style={{ background: "rgba(11,11,13,0.9)", borderColor: "var(--color-app-line)" }}
+        style={{ background: "rgba(8,8,10,0.9)", borderColor: "var(--color-app-line)" }}
       >
         <Link href="/app/home" className="flex items-center gap-2.5">
           <div
@@ -51,7 +51,7 @@ export function AppSidebar() {
           >
             B
           </div>
-          <span className="font-display text-lg leading-none tracking-tight text-fg">BlitzMind</span>
+          <span className="font-display text-lg leading-none tracking-tight text-fg">BlitzMind<span style={{ color: "var(--color-app-accent)" }}>.</span></span>
         </Link>
         <button
           onClick={() => setOpen(true)}
@@ -89,7 +89,7 @@ export function AppSidebar() {
             >
               B
             </div>
-            <span className="font-display text-lg leading-none tracking-tight text-fg">BlitzMind</span>
+            <span className="font-display text-lg leading-none tracking-tight text-fg">BlitzMind<span style={{ color: "var(--color-app-accent)" }}>.</span></span>
           </Link>
           {/* Close (mobile only) */}
           <button

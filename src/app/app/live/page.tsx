@@ -135,7 +135,7 @@ export default function LiveMatchPage() {
               <section>
                 <div className="flex items-baseline justify-between mb-3">
                   <div>
-                    <h3 className="text-lg font-medium tracking-tight">Live HRV</h3>
+                    <h3 className="text-lg font-display font-medium tracking-tight">Live HRV</h3>
                     <p className="text-xs text-fg-mute mt-0.5">Last 90 seconds · stress threshold at {STRESS_THRESHOLD}ms</p>
                   </div>
                   <div className="flex items-center gap-3">

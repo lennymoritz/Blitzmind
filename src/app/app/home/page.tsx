@@ -139,7 +139,7 @@ export default function HomePage() {
         {/* ============ YOUR GAMES — launcher ============ */}
         <section className="mb-10">
           <div className="flex items-baseline justify-between mb-4">
-            <h3 className="text-lg font-medium tracking-tight">Your games</h3>
+            <h3 className="text-lg font-display font-medium tracking-tight">Your games</h3>
             <Link href="/app/library" className="text-xs text-fg-dim hover:text-fg transition-colors">
               Open library →
             </Link>
@@ -199,7 +199,7 @@ export default function HomePage() {
 
         {/* ============ PERFORMANCE INSIGHT ============ */}
         <section className="mb-10">
-          <h3 className="text-lg font-medium tracking-tight mb-4">Performance insight</h3>
+          <h3 className="text-lg font-display font-medium tracking-tight mb-4">Performance insight</h3>
 
           <Link
             href="/app/insights"
@@ -245,7 +245,7 @@ export default function HomePage() {
         {/* ============ RECENT MATCHES ============ */}
         <section className="mb-10">
           <div className="flex items-baseline justify-between mb-4">
-            <h3 className="text-lg font-medium tracking-tight">Recent matches</h3>
+            <h3 className="text-lg font-display font-medium tracking-tight">Recent matches</h3>
             <Link href="/app/sessions" className="text-xs text-fg-dim hover:text-fg transition-colors">View all →</Link>
           </div>
 

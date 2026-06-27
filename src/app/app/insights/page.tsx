@@ -82,7 +82,7 @@ export default function InsightsPage() {
         <section>
           <div className="flex items-baseline justify-between mb-4">
             <div>
-              <h3 className="text-lg font-medium tracking-tight">When you play your best</h3>
+              <h3 className="text-lg font-display font-medium tracking-tight">When you play your best</h3>
               <p className="text-xs text-fg-mute mt-0.5">
                 Match-weighted average calm score by day × hour
               </p>
@@ -108,14 +108,14 @@ export default function InsightsPage() {
         {/* ============ MAP STRESS RANKING ============ */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-lg font-medium tracking-tight mb-1">Maps by stress impact</h3>
+            <h3 className="text-lg font-display font-medium tracking-tight mb-1">Maps by stress impact</h3>
             <p className="text-xs text-fg-mute mb-4">
               Where your HRV holds up vs where it crashes
             </p>
             <MapStressRanking />
           </div>
           <div>
-            <h3 className="text-lg font-medium tracking-tight mb-1">Weapon class under stress</h3>
+            <h3 className="text-lg font-display font-medium tracking-tight mb-1">Weapon class under stress</h3>
             <p className="text-xs text-fg-mute mb-4">
               How accuracy degrades when calm score drops below 50%
             </p>
@@ -127,7 +127,7 @@ export default function InsightsPage() {
         <section>
           <div className="flex items-baseline justify-between mb-4">
             <div>
-              <h3 className="text-lg font-medium tracking-tight">7-day trend</h3>
+              <h3 className="text-lg font-display font-medium tracking-tight">7-day trend</h3>
               <p className="text-xs text-fg-mute mt-0.5">
                 HRV, calm score, and win rate vs the previous week
               </p>

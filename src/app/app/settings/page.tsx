@@ -386,7 +386,7 @@ function Section({
           >
             {number}
           </span>
-          <h3 className="text-lg font-medium tracking-tight text-fg">{title}</h3>
+          <h3 className="text-lg font-display font-medium tracking-tight text-fg">{title}</h3>
         </div>
         <p className="text-xs text-fg-mute mt-1 leading-relaxed">{description}</p>
       </div>
