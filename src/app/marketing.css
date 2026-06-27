@@ -116,6 +116,16 @@
     font-size: 14px; font-weight: 500;
     transition: transform .18s ease, background .18s ease;
   }
+  /* Bulletproof: highest-specificity rules so no Tailwind preflight,
+     layer ordering, or CSS-variable resolution issue can hide the text. */
+  .blitzmind-marketing .nav-cta {
+    background: #f5f5f7 !important;
+    color: #08080a !important;
+  }
+  .blitzmind-marketing .nav-cta svg {
+    stroke: #08080a !important;
+    color: #08080a !important;
+  }
   .nav-cta:hover { transform: translateY(-1px); background: #fff; }
   .live-dot {
     display: inline-block; width: 7px; height: 7px; border-radius: 50%;
@@ -228,6 +238,14 @@
     transition: transform .18s ease, background .18s ease, border-color .18s ease;
   }
   .btn-primary { background: #f5f5f7; color: #08080a; }
+  .blitzmind-marketing .btn-primary {
+    background: #f5f5f7 !important;
+    color: #08080a !important;
+  }
+  .blitzmind-marketing .btn-primary svg {
+    stroke: #08080a !important;
+    color: #08080a !important;
+  }
   .btn-primary:hover { transform: translateY(-1px); background: #fff; }
   .btn-secondary {
     background: rgba(8,8,10,0.5);
