@@ -74,7 +74,7 @@ export function TriggerConfig({
     <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] gap-3 items-end">
       {/* Metric picker */}
       <div>
-        <label className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute block mb-1.5">
+        <label className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute block mb-1.5">
           Trigger metric
         </label>
         <div className="relative">
@@ -115,7 +115,7 @@ export function TriggerConfig({
 
       {/* Threshold slider + number */}
       <div>
-        <label className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute block mb-1.5">
+        <label className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute block mb-1.5">
           Threshold
         </label>
         <div
@@ -135,7 +135,7 @@ export function TriggerConfig({
             }
             className="bm-range flex-1"
           />
-          <div className="flex items-baseline gap-0.5 font-mono text-sm tabular-nums shrink-0 w-12 text-right">
+          <div className="flex items-baseline gap-0.5 tabular-nums text-sm tabular-nums shrink-0 w-12 text-right">
             <span className="text-fg">{value.threshold}</span>
             <span className="text-fg-mute text-xs">{metric.unit}</span>
           </div>
@@ -145,11 +145,11 @@ export function TriggerConfig({
       {/* Live indicator */}
       {liveIndicator && (
         <div className="flex flex-col items-end gap-1">
-          <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute">
+          <div className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute">
             Live now
           </div>
           <div
-            className="flex items-center gap-2 px-2.5 py-1.5 rounded text-xs font-mono whitespace-nowrap transition-colors"
+            className="flex items-center gap-2 px-2.5 py-1.5 rounded text-xs tabular-nums whitespace-nowrap transition-colors"
             style={{
               background: wouldFire
                 ? "rgba(255, 51, 68, 0.12)"

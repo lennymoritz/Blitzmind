@@ -79,7 +79,7 @@ export default function ControllerTab() {
 
             {/* Sensitivity curve preview */}
             <div>
-              <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute mb-2">
+              <div className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute mb-2">
                 Adaptation curve
               </div>
               <SensitivityCurve sensitivity={sensitivity} threshold={trigger.threshold} />
@@ -169,7 +169,7 @@ export default function ControllerTab() {
                   }}
                 >
                   <div className="text-sm text-fg capitalize">{p === "default" ? "Default" : `${p} grip`}</div>
-                  <div className="text-[10px] text-fg-mute font-mono mt-1">
+                  <div className="text-[10px] text-fg-mute tabular-nums mt-1">
                     {p === "default"
                       ? "Balanced sensitivity"
                       : p === "low"
@@ -197,7 +197,7 @@ export default function ControllerTab() {
               style={{ borderColor: "var(--color-app-line)" }}
             >
               <h3 className="text-sm font-medium text-fg">BlitzMind Controller</h3>
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-mono">
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] tabular-nums">
                 <span className="block w-1.5 h-1.5 rounded-full bg-calm heartbeat" />
                 <span style={{ color: "var(--color-calm)" }}>Sensor live</span>
               </div>
@@ -238,7 +238,7 @@ export default function ControllerTab() {
                 <h3 className="text-sm font-medium text-fg">Live grip pressure</h3>
                 <p className="text-xs text-fg-mute mt-0.5">FSR strips across each handle</p>
               </div>
-              <span className="text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">
+              <span className="text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">
                 {gripProfile} profile
               </span>
             </div>
@@ -367,11 +367,11 @@ function SensitivityCurve({
       {/* Legend */}
       <g>
         <line x1={pad} x2={pad + 12} y1={height - 4} y2={height - 4} stroke="var(--color-fg)" strokeWidth="1.5" />
-        <text x={pad + 16} y={height - 1} fontSize="8" fontFamily="var(--font-mono)" fill="var(--color-fg-mute)">
+        <text x={pad + 16} y={height - 1} fontSize="8" fontFamily="var(--tabular-nums)" fill="var(--color-fg-mute)">
           BASE
         </text>
         <line x1={pad + 60} x2={pad + 72} y1={height - 4} y2={height - 4} stroke="var(--color-app-accent)" strokeWidth="1.5" strokeDasharray="3 2" />
-        <text x={pad + 76} y={height - 1} fontSize="8" fontFamily="var(--font-mono)" fill="var(--color-app-accent)">
+        <text x={pad + 76} y={height - 1} fontSize="8" fontFamily="var(--tabular-nums)" fill="var(--color-app-accent)">
           ADAPTED (UNDER STRESS)
         </text>
       </g>
@@ -419,10 +419,10 @@ function DeadzoneVisualization({ inner, outer }: { inner: number; outer: number 
       </div>
       <div className="text-xs text-fg-mute space-y-2 leading-relaxed">
         <div>
-          <span className="font-mono uppercase tracking-[0.15em] text-fg-dim">Inner</span> filters {inner}% of small stick movements as drift.
+          <span className="tabular-nums uppercase tracking-[0.15em] text-fg-dim">Inner</span> filters {inner}% of small stick movements as drift.
         </div>
         <div>
-          <span className="font-mono uppercase tracking-[0.15em] text-fg-dim">Outer</span> caps at {outer}% — beyond this is treated as max.
+          <span className="tabular-nums uppercase tracking-[0.15em] text-fg-dim">Outer</span> caps at {outer}% — beyond this is treated as max.
         </div>
       </div>
     </div>
@@ -440,9 +440,9 @@ function HwStatus({
 }) {
   return (
     <div>
-      <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute">{label}</div>
+      <div className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute">{label}</div>
       <div
-        className="mt-1 text-xs font-mono"
+        className="mt-1 text-xs tabular-nums"
         style={{
           color:
             status === "ok" ? "var(--color-calm)" : "var(--color-app-accent)",
@@ -498,8 +498,8 @@ function GripReading({ side, pressure }: { side: string; pressure: number }) {
   return (
     <div>
       <div className="flex items-baseline justify-between mb-1">
-        <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute">{side} grip</span>
-        <span className="text-sm font-mono text-fg tabular-nums">
+        <span className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute">{side} grip</span>
+        <span className="text-sm tabular-nums text-fg tabular-nums">
           {Math.round(pressure)}<span className="text-fg-mute text-xs">%</span>
         </span>
       </div>

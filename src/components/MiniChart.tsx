@@ -69,7 +69,7 @@ export function CalmOutcomeBars({
         const h = `${Math.max(8, m.calmPercent)}%`;
         return (
           <div key={i} className="flex-1 flex flex-col items-center gap-2 h-full justify-end">
-            <span className="text-[9px] font-mono tabular-nums text-fg-mute">{m.calmPercent}</span>
+            <span className="text-[9px] tabular-nums tabular-nums text-fg-mute">{m.calmPercent}</span>
             <motion.div
               className="w-full rounded-t-sm"
               style={{ background: color, opacity: 0.85 }}
@@ -78,7 +78,7 @@ export function CalmOutcomeBars({
               viewport={{ once: true }}
               transition={{ delay: reduce ? 0 : i * 0.06, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             />
-            <span className="text-[8px] uppercase tracking-[0.12em] font-mono text-fg-mute whitespace-nowrap">
+            <span className="text-[8px] uppercase tracking-[0.12em] tabular-nums text-fg-mute whitespace-nowrap">
               {m.label}
             </span>
           </div>

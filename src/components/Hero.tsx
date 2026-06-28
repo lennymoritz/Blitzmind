@@ -41,7 +41,7 @@ export function Hero() {
             className="flex items-center gap-3 text-[10px] uppercase tracking-[0.32em] text-fg-mute"
           >
             <span className="block w-2 h-2 rounded-full bg-accent heartbeat" />
-            <span className="font-mono">Adaptive Controller / Thesis Project</span>
+            <span className="tabular-nums">Adaptive Controller / Thesis Project</span>
           </motion.div>
 
           {/* Headline */}

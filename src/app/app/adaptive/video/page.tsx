@@ -172,7 +172,7 @@ export default function VideoTab() {
         <div className="xl:sticky xl:top-32 self-start">
           <div className="mb-3 flex items-baseline justify-between">
             <h3 className="text-sm text-fg font-medium">Live preview</h3>
-            <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute">
+            <span className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute">
               Adjusts as you configure
             </span>
           </div>

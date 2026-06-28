@@ -166,7 +166,7 @@ export default function SessionsPage() {
             ]}
           />
           <div className="flex items-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute">
+            <span className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute">
               Mode
             </span>
             <select
@@ -317,7 +317,7 @@ export default function SessionsPage() {
                 <div className="min-w-0">
                   <div className="text-sm text-fg truncate">
                     {match.mode}{" "}
-                    <span className="text-fg-mute font-mono text-xs">·</span>{" "}
+                    <span className="text-fg-mute tabular-nums text-xs">·</span>{" "}
                     <span className="text-fg-dim">{match.map}</span>
                   </div>
                   <div className="text-xs text-fg-mute mt-0.5 truncate">
@@ -338,10 +338,10 @@ export default function SessionsPage() {
                   warn={match.stressEvents >= 5}
                 />
                 <div className="text-right">
-                  <div className="text-xs text-fg-mute font-mono whitespace-nowrap">
+                  <div className="text-xs text-fg-mute tabular-nums whitespace-nowrap">
                     {match.date}
                   </div>
-                  <div className="text-xs text-fg-mute font-mono whitespace-nowrap mt-0.5">
+                  <div className="text-xs text-fg-mute tabular-nums whitespace-nowrap mt-0.5">
                     {match.duration}
                   </div>
                 </div>
@@ -421,7 +421,7 @@ function AggregateCard({
       style={{ background: "var(--color-app-surface)" }}
     >
       {/* Label row */}
-      <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] font-mono text-fg-mute">
+      <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] tabular-nums text-fg-mute">
         <span
           className="block w-1 h-1 rounded-full"
           style={{ background: sparkColor }}
@@ -443,7 +443,7 @@ function AggregateCard({
         </div>
         {trend && trend.delta !== 0 && (
           <div
-            className="text-[11px] font-mono tabular-nums"
+            className="text-[11px] tabular-nums tabular-nums"
             style={{ color: deltaColor }}
           >
             {trend.delta > 0 ? "+" : ""}
@@ -454,7 +454,7 @@ function AggregateCard({
       </div>
 
       {/* Hint line */}
-      <div className="mt-1.5 text-[11px] text-fg-mute font-mono">{hint}</div>
+      <div className="mt-1.5 text-[11px] text-fg-mute tabular-nums">{hint}</div>
 
       {/* Sparkline along the bottom edge */}
       {trend && trend.series.length >= 2 && (
@@ -528,7 +528,7 @@ function Heading({
 }) {
   return (
     <div
-      className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute"
+      className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute"
       style={{ textAlign: center ? "center" : "left" }}
     >
       {children}
@@ -548,7 +548,7 @@ function Stat({
   return (
     <div className="text-center">
       <div
-        className="text-sm font-mono tabular-nums"
+        className="text-sm tabular-nums tabular-nums"
         style={{
           color: warn
             ? "var(--color-app-accent)"
@@ -576,7 +576,7 @@ function FilterPills<T extends string>({
 }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute">
+      <span className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute">
         {label}
       </span>
       <div

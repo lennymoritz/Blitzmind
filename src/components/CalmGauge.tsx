@@ -101,14 +101,14 @@ export function CalmGauge({
         >
           {Math.round(pct)}
           <span
-            className="text-fg-dim font-mono"
+            className="text-fg-dim tabular-nums"
             style={{ fontSize: pctFont, marginTop: numFont * 0.08, marginLeft: 2 }}
           >
             %
           </span>
         </div>
         {showLabels && (
-          <span className="mt-2 text-[10px] uppercase tracking-[0.24em] text-fg-mute font-mono">
+          <span className="mt-2 text-[10px] uppercase tracking-[0.24em] text-fg-mute tabular-nums">
             updating · live
           </span>
         )}

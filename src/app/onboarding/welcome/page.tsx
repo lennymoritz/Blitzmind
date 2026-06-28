@@ -26,11 +26,11 @@ export default function WelcomePage() {
       }}
     >
       <div className="text-center max-w-2xl mx-auto">
-        <div className="ob-rise text-[10px] uppercase tracking-[0.32em] font-mono text-fg-mute">
+        <div className="ob-rise text-[10px] uppercase tracking-[0.32em] tabular-nums text-fg-mute">
           Welcome to BlitzMind
         </div>
         <h1
-          className="ob-rise mt-6 text-5xl font-display tracking-[-0.02em] leading-[1.05]"
+          className="ob-rise mt-6 text-3xl sm:text-4xl md:text-5xl font-display tracking-[-0.02em] leading-[1.05]"
           style={{ animationDelay: "0.06s" }}
         >
           Read your body.<br />
@@ -44,7 +44,7 @@ export default function WelcomePage() {
         </p>
       </div>
 
-      <div className="mt-16 grid grid-cols-3 gap-4">
+      <div className="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-4">
         <ValueTile
           i={0}
           letter="A"
@@ -96,7 +96,7 @@ function ValueTile({
     >
       <div className="flex items-center gap-3 mb-4">
         <span
-          className="grid place-items-center w-9 h-9 rounded-lg font-mono text-sm shrink-0 transition-colors"
+          className="grid place-items-center w-9 h-9 rounded-lg tabular-nums text-sm shrink-0 transition-colors"
           style={{
             border: "1px solid var(--color-app-line-strong)",
             color: "var(--color-app-accent)",

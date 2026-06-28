@@ -79,10 +79,10 @@ export function AnalyzeWidget() {
         {/* LEFT: contextual readout */}
         <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-line">
           <div className="flex items-center justify-between gap-4">
-            <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute font-mono whitespace-nowrap">
+            <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute tabular-nums whitespace-nowrap">
               Session 12.04.26
             </div>
-            <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute whitespace-nowrap">
+            <div className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute whitespace-nowrap">
               Warzone · Ranked
             </div>
           </div>
@@ -137,11 +137,11 @@ export function AnalyzeWidget() {
         <div ref={chartRef} className="p-8 lg:p-10 relative">
           <div className="flex items-baseline justify-between mb-6">
             <div>
-              <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute font-mono">
+              <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute tabular-nums">
                 Calm score · 30 min match
               </div>
             </div>
-            <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute">
+            <div className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute">
               <span className="inline-block w-2 h-px bg-accent align-middle mr-1.5" />
               Stress event
             </div>
@@ -181,7 +181,7 @@ export function AnalyzeWidget() {
                     fontSize="9"
                     fill="var(--color-fg-mute)"
                     textAnchor="end"
-                    fontFamily="var(--font-mono)"
+                    fontFamily="var(--tabular-nums)"
                   >
                     {v}
                   </text>
@@ -254,7 +254,7 @@ export function AnalyzeWidget() {
                     fontSize="9"
                     fill={color}
                     textAnchor="middle"
-                    fontFamily="var(--font-mono)"
+                    fontFamily="var(--tabular-nums)"
                     letterSpacing="0.05em"
                   >
                     {ev.label.toUpperCase()}
@@ -288,7 +288,7 @@ export function AnalyzeWidget() {
           {/* Hover tooltip */}
           {hovered !== null && (
             <div
-              className="absolute pointer-events-none px-3 py-2 rounded bg-surface border border-line-soft text-xs font-mono shadow-xl"
+              className="absolute pointer-events-none px-3 py-2 rounded bg-surface border border-line-soft text-xs tabular-nums shadow-xl"
               style={{
                 left: Math.min(
                   Math.max(xy(hovered, 0).x + pad.left + 8, 40),
@@ -309,7 +309,7 @@ export function AnalyzeWidget() {
             </div>
           )}
 
-          <div className="mt-4 flex justify-between text-[10px] font-mono text-fg-mute">
+          <div className="mt-4 flex justify-between text-[10px] tabular-nums text-fg-mute">
             <span>t+0m</span>
             <span>t+15m</span>
             <span>t+30m</span>
@@ -373,7 +373,7 @@ function StatLine({
         </span>
         {delta && (
           <span
-            className={`text-xs font-mono ${
+            className={`text-xs tabular-nums ${
               deltaDirection === "down" ? "text-accent" : "text-calm"
             }`}
           >
@@ -382,7 +382,7 @@ function StatLine({
         )}
       </div>
       {note && (
-        <div className="mt-1 text-xs text-fg-mute font-mono">{note}</div>
+        <div className="mt-1 text-xs text-fg-mute tabular-nums">{note}</div>
       )}
     </div>
   );
@@ -402,7 +402,7 @@ function HighlightCard({
   const color = type === "stress" ? "var(--color-accent)" : "var(--color-calm)";
   return (
     <div className="bg-bg p-4">
-      <div className="flex items-center gap-2 text-[10px] font-mono">
+      <div className="flex items-center gap-2 text-[10px] tabular-nums">
         <span
           className="block w-1.5 h-1.5 rounded-full"
           style={{ background: color }}

@@ -141,9 +141,9 @@ export default function LiveMatchPage() {
                   <div className="flex items-center gap-3">
                     <div className="flex items-baseline gap-1.5">
                       <span className="text-2xl font-display tabular-nums tracking-tight text-fg"><TweenedNumber value={currentHrv} duration={300} /></span>
-                      <span className="text-xs font-mono text-fg-mute">ms</span>
+                      <span className="text-xs tabular-nums text-fg-mute">ms</span>
                     </div>
-                    <div className="px-2 py-1 rounded text-[10px] uppercase tracking-[0.18em] font-mono"
+                    <div className="px-2 py-1 rounded text-[10px] uppercase tracking-[0.18em] tabular-nums"
                       style={{
                         background: currentHrv < STRESS_THRESHOLD ? "rgba(255,51,68,0.12)" : "rgba(110,231,183,0.12)",
                         color: currentHrv < STRESS_THRESHOLD ? "var(--color-app-accent)" : "var(--color-calm)",
@@ -159,19 +159,19 @@ export default function LiveMatchPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6">
                 <div className="rounded-lg border p-5" style={{ background: "var(--color-app-surface)", borderColor: "var(--color-app-line)" }}>
-                  <div className="text-[10px] uppercase tracking-[0.22em] font-mono text-fg-mute">Calm Score</div>
+                  <div className="text-[10px] uppercase tracking-[0.22em] tabular-nums text-fg-mute">Calm Score</div>
                   <CalmGaugeRadial value={calmScore} />
                 </div>
                 <div className="rounded-lg border overflow-hidden" style={{ background: "var(--color-app-surface)", borderColor: "var(--color-app-line)" }}>
                   <div className="px-5 py-3 border-b flex items-center justify-between" style={{ borderColor: "var(--color-app-line)" }}>
                     <h4 className="text-sm font-medium text-fg">Adaptive Control · live firings</h4>
-                    <span className="text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">{firings.length} total</span>
+                    <span className="text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">{firings.length} total</span>
                   </div>
                   <div className="max-h-64 overflow-y-auto">
                     {firings.length === 0 ? (
                       <div className="px-5 py-10 text-center text-xs text-fg-mute">
                         No adaptations have fired yet.<br />
-                        <span className="text-[10px] uppercase tracking-[0.18em] font-mono mt-1 inline-block">System monitoring</span>
+                        <span className="text-[10px] uppercase tracking-[0.18em] tabular-nums mt-1 inline-block">System monitoring</span>
                       </div>
                     ) : (
                       [...firings].reverse().map((f, i) => (
@@ -181,9 +181,9 @@ export default function LiveMatchPage() {
                           }} />
                           <div>
                             <div className="text-xs text-fg">{f.action}</div>
-                            <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-fg-mute mt-0.5">{f.system}</div>
+                            <div className="text-[10px] tabular-nums uppercase tracking-[0.18em] text-fg-mute mt-0.5">{f.system}</div>
                           </div>
-                          <div className="text-[10px] font-mono text-fg-mute whitespace-nowrap">{formatClock(f.t)}</div>
+                          <div className="text-[10px] tabular-nums text-fg-mute whitespace-nowrap">{formatClock(f.t)}</div>
                         </div>
                       ))
                     )}
@@ -205,9 +205,9 @@ export default function LiveMatchPage() {
           <div className="flex items-start gap-3">
             <span className="block w-2 h-2 rounded-full mt-1.5 heartbeat shrink-0" style={{ background: "var(--color-app-accent)" }} />
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] uppercase tracking-[0.22em] font-mono" style={{ color: "var(--color-app-accent)" }}>Stress event detected</div>
+              <div className="text-[10px] uppercase tracking-[0.22em] tabular-nums" style={{ color: "var(--color-app-accent)" }}>Stress event detected</div>
               <div className="mt-1 text-sm text-fg font-medium">{activeToast.label}</div>
-              <div className="mt-2 text-xs text-fg-mute font-mono">HRV dropped to {Math.round(activeToast.hrv)}ms at {formatClock(activeToast.t)}</div>
+              <div className="mt-2 text-xs text-fg-mute tabular-nums">HRV dropped to {Math.round(activeToast.hrv)}ms at {formatClock(activeToast.t)}</div>
             </div>
           </div>
         </div>
@@ -242,7 +242,7 @@ function PreSessionHero({ onStart }: { onStart: () => void }) {
       <div className="max-w-3xl mx-auto text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border" style={{ borderColor: "var(--color-app-line-strong)" }}>
           <span className="block w-1.5 h-1.5 rounded-full heartbeat" style={{ background: "var(--color-calm)" }} />
-          <span className="text-[10px] uppercase tracking-[0.22em] font-mono text-fg-dim">Sensor live · {profile.handle}</span>
+          <span className="text-[10px] uppercase tracking-[0.22em] tabular-nums text-fg-dim">Sensor live · {profile.handle}</span>
         </div>
         <h2 className="mt-8 text-4xl font-display tracking-[-0.02em] leading-tight">
           When you start a match, BlitzMind starts watching.
@@ -256,21 +256,35 @@ function PreSessionHero({ onStart }: { onStart: () => void }) {
           </button>
           <p className="mt-3 text-xs text-fg-mute">Demo runs for 3 minutes · ends automatically</p>
         </div>
-        <div className="mt-16 grid grid-cols-3 gap-4 text-left">
-          <PreTile label="Real-time HRV" body="Live trace updating every 150ms. Stress events appear as they happen." />
-          <PreTile label="Adaptive firings" body="Watch Video, Audio, Weapons, and Device respond in real time when triggers cross." />
-          <PreTile label="Match context" body="Stress events are tagged with what was happening — 'first contact,' 'final round.'" />
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+          <PreTile num="01" label="Real-time HRV" body="Live trace updating every 150ms. Stress events appear as they happen." />
+          <PreTile num="02" label="Adaptive firings" body="Watch Video, Audio, Weapons, and Device respond in real time when triggers cross." />
+          <PreTile num="03" label="Match context" body="Stress events are tagged with what was happening — 'first contact,' 'final round.'" />
         </div>
       </div>
     </div>
   );
 }
 
-function PreTile({ label, body }: { label: string; body: string }) {
+function PreTile({ num, label, body }: { num: string; label: string; body: string }) {
   return (
-    <div className="p-4 rounded-lg border" style={{ background: "var(--color-app-surface)", borderColor: "var(--color-app-line)" }}>
-      <div className="text-[10px] uppercase tracking-[0.22em] font-mono" style={{ color: "var(--color-app-accent)" }}>{label}</div>
-      <p className="mt-2 text-xs text-fg-dim leading-relaxed">{body}</p>
+    <div className="glass-card p-6">
+      <div className="flex items-center gap-3 mb-4">
+        <span
+          className="grid place-items-center w-9 h-9 rounded-lg text-sm shrink-0 tabular-nums"
+          style={{
+            border: "1px solid var(--color-app-line-strong)",
+            color: "var(--color-app-accent)",
+            background: "linear-gradient(180deg, rgba(255,51,68,0.1), transparent)",
+          }}
+        >
+          {num}
+        </span>
+        <span className="font-display text-lg tracking-tight text-fg">
+          {label}
+        </span>
+      </div>
+      <p className="text-sm text-fg-dim leading-relaxed">{body}</p>
     </div>
   );
 }
@@ -296,11 +310,11 @@ function LiveHrvChart({ samples, elapsed, events, threshold }: { samples: HrvSam
       </defs>
       <rect x={pad.x} y={toY(threshold)} width={innerW} height={h - pad.y - toY(threshold)} fill="rgba(255,51,68,0.04)" />
       <line x1={pad.x} x2={w - pad.x} y1={toY(threshold)} y2={toY(threshold)} stroke="var(--color-app-accent)" strokeWidth="0.8" strokeDasharray="3 3" opacity="0.5" />
-      <text x={pad.x + 6} y={toY(threshold) + 11} fontSize="9" fontFamily="var(--font-mono)" fill="var(--color-app-accent)">STRESS THRESHOLD · {threshold}ms</text>
+      <text x={pad.x + 6} y={toY(threshold) + 11} fontSize="9" fontFamily="var(--tabular-nums)" fill="var(--color-app-accent)">STRESS THRESHOLD · {threshold}ms</text>
       {[40, 60, 80].map((v) => (
         <g key={v}>
           <line x1={pad.x} x2={w - pad.x} y1={toY(v)} y2={toY(v)} stroke="var(--color-app-line)" strokeWidth="0.5" strokeDasharray="2 4" />
-          <text x={pad.x - 4} y={toY(v) + 3} fontSize="9" fontFamily="var(--font-mono)" fill="var(--color-fg-mute)" textAnchor="end">{v}</text>
+          <text x={pad.x - 4} y={toY(v) + 3} fontSize="9" fontFamily="var(--tabular-nums)" fill="var(--color-fg-mute)" textAnchor="end">{v}</text>
         </g>
       ))}
       {path && (
@@ -359,7 +373,7 @@ function CalmGaugeRadial({ value }: { value: number }) {
         <div className="text-5xl font-display tabular-nums tracking-tight" style={{ color }}>
           <TweenedNumber value={value} duration={1100} />
         </div>
-        <div className="text-[10px] uppercase tracking-[0.22em] font-mono text-fg-mute mt-1">{value > 65 ? "Calm" : value > 45 ? "Elevated" : "Stressed"}</div>
+        <div className="text-[10px] uppercase tracking-[0.22em] tabular-nums text-fg-mute mt-1">{value > 65 ? "Calm" : value > 45 ? "Elevated" : "Stressed"}</div>
       </div>
     </div>
   );
@@ -380,7 +394,7 @@ function SystemStatusRail({ activeFirings, state }: { activeFirings: AdaptiveFir
           {state === "live" && (
             <div className="flex items-center gap-1.5">
               <span className="block w-1.5 h-1.5 rounded-full heartbeat" style={{ background: "var(--color-calm)" }} />
-              <span className="text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">Live</span>
+              <span className="text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">Live</span>
             </div>
           )}
         </div>
@@ -393,9 +407,9 @@ function SystemStatusRail({ activeFirings, state }: { activeFirings: AdaptiveFir
               <div className="flex items-center justify-between mb-1">
                 <span className="text-sm text-fg">{sys.label}</span>
                 {fired ? (
-                  <span className="px-1.5 py-0.5 rounded text-[9px] uppercase tracking-[0.18em] font-mono" style={{ background: "rgba(255,51,68,0.15)", color: "var(--color-app-accent)" }}>Active</span>
+                  <span className="px-1.5 py-0.5 rounded text-[9px] uppercase tracking-[0.18em] tabular-nums" style={{ background: "rgba(255,51,68,0.15)", color: "var(--color-app-accent)" }}>Active</span>
                 ) : (
-                  <span className="px-1.5 py-0.5 rounded text-[9px] uppercase tracking-[0.18em] font-mono" style={{ background: "var(--color-app-surface-3)", color: "var(--color-fg-mute)" }}>Idle</span>
+                  <span className="px-1.5 py-0.5 rounded text-[9px] uppercase tracking-[0.18em] tabular-nums" style={{ background: "var(--color-app-surface-3)", color: "var(--color-fg-mute)" }}>Idle</span>
                 )}
               </div>
               <div className="text-xs text-fg-mute">{fired ? fired.action : sys.description}</div>
@@ -411,14 +425,14 @@ function LiveTile({ label, value, numericValue, format, hint, status = "neutral"
   const statusColor = status === "live" ? "var(--color-app-accent)" : status === "calm" ? "var(--color-calm)" : status === "warn" ? "var(--color-app-accent)" : "var(--color-fg-mute)";
   return (
     <div className="p-5" style={{ background: "var(--color-app-surface)" }}>
-      <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] font-mono text-fg-mute">
+      <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] tabular-nums text-fg-mute">
         <span className={`block w-1.5 h-1.5 rounded-full ${status === "live" ? "heartbeat" : ""}`} style={{ background: statusColor }} />
         {label}
       </div>
       <div className="mt-3 text-2xl font-display tabular-nums tracking-tight text-fg">
         {numericValue !== undefined ? <TweenedNumber value={numericValue} format={format} duration={400} /> : value}
       </div>
-      <div className="mt-1 text-xs text-fg-mute font-mono">{hint}</div>
+      <div className="mt-1 text-xs text-fg-mute tabular-nums">{hint}</div>
     </div>
   );
 }

@@ -115,10 +115,10 @@ export function HardwareRender() {
       </svg>
 
       {/* Corner labels */}
-      <div className="absolute top-4 left-4 text-[9px] uppercase tracking-[0.22em] font-mono text-fg-mute">
+      <div className="absolute top-4 left-4 text-[9px] uppercase tracking-[0.22em] tabular-nums text-fg-mute">
         BlitzMind controller
       </div>
-      <div className="absolute bottom-4 right-4 text-[9px] uppercase tracking-[0.22em] font-mono text-fg-mute">
+      <div className="absolute bottom-4 right-4 text-[9px] uppercase tracking-[0.22em] tabular-nums text-fg-mute">
         Front · DV.01
       </div>
     </div>
@@ -209,7 +209,7 @@ function Callout({
         x={tx}
         y={numY}
         textAnchor={anchor}
-        fontFamily="var(--font-mono)"
+        fontFamily="var(--tabular-nums)"
         fontSize="14"
         letterSpacing="1"
         fontWeight={600}
@@ -221,7 +221,7 @@ function Callout({
         x={tx}
         y={subY}
         textAnchor={anchor}
-        fontFamily="var(--font-mono)"
+        fontFamily="var(--tabular-nums)"
         fontSize="11"
         letterSpacing="0.5"
         fill="var(--color-fg-mute)"

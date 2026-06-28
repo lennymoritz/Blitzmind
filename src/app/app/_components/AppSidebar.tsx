@@ -129,7 +129,7 @@ export function AppSidebar() {
             className="flex items-center gap-3 px-2 py-2 rounded-md transition-colors hover:bg-app-surface-2"
           >
             <div
-              className="w-8 h-8 rounded-full grid place-items-center font-mono text-xs"
+              className="w-8 h-8 rounded-full grid place-items-center tabular-nums text-xs"
               style={{ background: "var(--color-app-surface-3)", color: "var(--color-fg-dim)" }}
             >
               HK
@@ -138,14 +138,14 @@ export function AppSidebar() {
               <div className="text-xs text-fg truncate font-medium">{profile.handle}</div>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <span className="block w-1.5 h-1.5 rounded-full bg-accent heartbeat" />
-                <span className="text-[10px] text-fg-mute font-mono">Sensor live · 78 BPM</span>
+                <span className="text-[10px] text-fg-mute tabular-nums">Sensor live · 78 BPM</span>
               </div>
             </div>
           </Link>
 
           <Link
             href="/"
-            className="mt-3 px-2 py-1.5 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute hover:text-fg-dim transition-colors"
+            className="mt-3 px-2 py-1.5 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute hover:text-fg-dim transition-colors"
           >
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden>
               <path d="M6 2 L2 5 L6 8" stroke="currentColor" strokeWidth="1.2" />

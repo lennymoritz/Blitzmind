@@ -124,7 +124,7 @@ export default function MapsTab() {
                 />
               ))}
             </div>
-            <div className="text-[10px] font-mono text-fg-mute uppercase tracking-[0.18em]">
+            <div className="text-[10px] tabular-nums text-fg-mute uppercase tracking-[0.18em]">
               {policies[p].mapIds.size} map{policies[p].mapIds.size === 1 ? "" : "s"} selected
             </div>
           </div>
@@ -234,7 +234,7 @@ function MapTile({
         )}
       </div>
       <div className="text-sm text-fg font-medium truncate">{map.name}</div>
-      <div className="text-[10px] text-fg-mute font-mono mt-0.5">
+      <div className="text-[10px] text-fg-mute tabular-nums mt-0.5">
         {map.size} · {map.category.toUpperCase()}
       </div>
     </button>

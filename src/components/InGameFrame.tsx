@@ -113,14 +113,14 @@ export function InGameFrame() {
       </div>
 
       {/* Ammo bottom-right */}
-      <div className="absolute bottom-6 right-6 font-mono text-right">
+      <div className="absolute bottom-6 right-6 tabular-nums text-right">
         <div className="text-white tabular-nums text-3xl">
           53<span className="text-white/40 text-sm ml-1.5">/ 210</span>
         </div>
       </div>
 
       {/* Player marker bottom-left */}
-      <div className="absolute bottom-6 left-6 font-mono">
+      <div className="absolute bottom-6 left-6 tabular-nums">
         <div className="text-[10px] uppercase tracking-[0.2em] text-white/60">
           Gametag
         </div>
@@ -132,7 +132,7 @@ export function InGameFrame() {
         {/* State pill — sits above the panel */}
         <div className="self-start inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/15 border border-accent/30">
           <span className="block w-1.5 h-1.5 rounded-full bg-accent heartbeat" />
-          <span className="text-[9px] uppercase tracking-[0.2em] text-accent font-mono">
+          <span className="text-[9px] uppercase tracking-[0.2em] text-accent tabular-nums">
             Adapting · calm 64%
           </span>
         </div>
@@ -140,12 +140,12 @@ export function InGameFrame() {
         <div className="rounded border border-accent/30 bg-black/55 backdrop-blur-md overflow-hidden">
           {/* Header */}
           <div className="px-4 py-3 border-b border-accent/20 flex items-center justify-between">
-            <div className="text-[9px] uppercase tracking-[0.22em] text-accent font-mono">
+            <div className="text-[9px] uppercase tracking-[0.22em] text-accent tabular-nums">
               BlitzMind
             </div>
             <div className="flex items-center gap-1.5">
               <span className="block w-1.5 h-1.5 rounded-full bg-accent heartbeat" />
-              <span className="text-[9px] uppercase tracking-[0.18em] text-white/60 font-mono">
+              <span className="text-[9px] uppercase tracking-[0.18em] text-white/60 tabular-nums">
                 Live
               </span>
             </div>
@@ -154,10 +154,10 @@ export function InGameFrame() {
           {/* HRV mini-chart */}
           <div className="px-4 py-4 border-b border-line">
             <div className="flex items-baseline justify-between">
-              <span className="text-[9px] uppercase tracking-[0.18em] text-white/60 font-mono">
+              <span className="text-[9px] uppercase tracking-[0.18em] text-white/60 tabular-nums">
                 Real-time HRV
               </span>
-              <span className="text-[10px] font-mono text-white/80">
+              <span className="text-[10px] tabular-nums text-white/80">
                 89 BPM
               </span>
             </div>
@@ -251,7 +251,7 @@ function AnnotationCallout({
         <div className="block w-16 h-px bg-white/40" />
         <span className="block w-1.5 h-1.5 rounded-full bg-white" />
       </div>
-      <div className="mt-1.5 font-mono">
+      <div className="mt-1.5 tabular-nums">
         <div className="text-[10px] uppercase tracking-[0.18em] text-white">
           {label}
         </div>

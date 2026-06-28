@@ -176,7 +176,7 @@ export function GameplayPreview({ settings }: { settings: PreviewSettings }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-6 right-[180px] text-right space-y-1.5 font-mono text-[10px]"
+            className="absolute top-6 right-[180px] text-right space-y-1.5 tabular-nums text-[10px]"
           >
             <div className="text-white/80">
               powderytoad1 <span className="text-accent/80">[KR-77]</span> Marrow
@@ -189,7 +189,7 @@ export function GameplayPreview({ settings }: { settings: PreviewSettings }) {
       </AnimatePresence>
 
       {/* Ammo — bottom-right, critical info, always shown */}
-      <div className="absolute bottom-5 right-5 text-right font-mono">
+      <div className="absolute bottom-5 right-5 text-right tabular-nums">
         <div className="text-[10px] uppercase tracking-[0.2em] text-white/60">
           Ammo
         </div>
@@ -216,17 +216,17 @@ export function GameplayPreview({ settings }: { settings: PreviewSettings }) {
           >
             <div className="rounded border border-accent/30 bg-black/55 backdrop-blur-sm overflow-hidden">
               <div className="px-2.5 py-1.5 border-b border-accent/20 flex items-center justify-between">
-                <span className="text-[8px] uppercase tracking-[0.2em] text-accent font-mono">
+                <span className="text-[8px] uppercase tracking-[0.2em] text-accent tabular-nums">
                   BlitzMind
                 </span>
                 <span className="block w-1 h-1 rounded-full bg-accent heartbeat" />
               </div>
               <div className="px-2.5 py-2">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-[8px] uppercase tracking-[0.18em] text-white/60 font-mono">
+                  <span className="text-[8px] uppercase tracking-[0.18em] text-white/60 tabular-nums">
                     HRV
                   </span>
-                  <span className="text-[10px] font-mono text-white">
+                  <span className="text-[10px] tabular-nums text-white">
                     72ms
                   </span>
                 </div>
@@ -257,7 +257,7 @@ export function GameplayPreview({ settings }: { settings: PreviewSettings }) {
           >
             <div className="flex items-center gap-1.5">
               <span className="block w-1 h-1 rounded-full bg-accent heartbeat" />
-              <span className="text-[9px] uppercase tracking-[0.2em] text-accent font-mono">
+              <span className="text-[9px] uppercase tracking-[0.2em] text-accent tabular-nums">
                 Focus Mode · Critical info only
               </span>
             </div>

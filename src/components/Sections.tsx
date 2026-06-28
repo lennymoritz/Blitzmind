@@ -18,7 +18,7 @@ export function SectionLabel({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.32em] text-fg-mute font-mono">
+    <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.32em] text-fg-mute tabular-nums">
       <span className="text-accent">{num}</span>
       <span className="block w-8 h-px bg-line-soft" />
       <span>{children}</span>
@@ -98,7 +98,7 @@ function StatCard({
       <div className="mt-3 font-display text-5xl tracking-tight tabular-nums">
         {value}
       </div>
-      <div className="mt-2 text-xs text-fg-mute font-mono">{sub}</div>
+      <div className="mt-2 text-xs text-fg-mute tabular-nums">{sub}</div>
     </div>
   );
 }
@@ -158,7 +158,7 @@ function PillarCard({
 }) {
   return (
     <div className="bg-bg p-8 lg:p-10">
-      <div className="text-[10px] uppercase tracking-[0.24em] text-accent font-mono">
+      <div className="text-[10px] uppercase tracking-[0.24em] text-accent tabular-nums">
         {num}
       </div>
       <h3 className="mt-6 font-display text-2xl tracking-tight">
@@ -179,10 +179,10 @@ export function AdaptSectionWrapper({ children }: { children: React.ReactNode })
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
         {/* Inline label above the widget */}
         <div className="mb-8 flex items-baseline justify-between">
-          <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute font-mono">
+          <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute tabular-nums">
             ADAPT / Live demonstration
           </div>
-          <div className="text-xs text-fg-mute font-mono hidden sm:block">
+          <div className="text-xs text-fg-mute tabular-nums hidden sm:block">
             Drag the threshold ↘
           </div>
         </div>
@@ -202,10 +202,10 @@ export function AnalyzeSectionWrapper({ children }: { children: React.ReactNode 
     <section className="relative pb-32 lg:pb-44 border-t border-line pt-24 lg:pt-32">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
         <div className="mb-8 flex items-baseline justify-between">
-          <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute font-mono">
+          <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute tabular-nums">
             ANALYZE / Post-session
           </div>
-          <div className="text-xs text-fg-mute font-mono hidden sm:block">
+          <div className="text-xs text-fg-mute tabular-nums hidden sm:block">
             Hover the chart ↘
           </div>
         </div>
@@ -289,10 +289,10 @@ export function HardwareSection() {
                   key={label}
                   className="flex items-baseline gap-4 border-b border-line py-3"
                 >
-                  <span className="w-28 shrink-0 text-[10px] uppercase tracking-[0.2em] text-fg-mute font-mono">
+                  <span className="w-28 shrink-0 text-[10px] uppercase tracking-[0.2em] text-fg-mute tabular-nums">
                     {label}
                   </span>
-                  <span className="text-fg-dim text-sm font-mono">
+                  <span className="text-fg-dim text-sm tabular-nums">
                     {detail}
                   </span>
                 </div>
@@ -367,7 +367,7 @@ function ModeCard({
   return (
     <div className="bg-bg p-8 lg:p-10">
       <div
-        className="text-[10px] uppercase tracking-[0.24em] font-mono"
+        className="text-[10px] uppercase tracking-[0.24em] tabular-nums"
         style={{
           color: muted ? "var(--color-fg-mute)" : "var(--color-accent)",
         }}
@@ -437,7 +437,7 @@ function StoryCard({
 }) {
   return (
     <div className="bg-bg p-8 lg:p-10">
-      <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute font-mono">
+      <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute tabular-nums">
         {phase}
       </div>
       <h3 className="mt-6 font-display text-2xl tracking-tight">{title}</h3>
@@ -482,7 +482,7 @@ export function Footer() {
         </div>
 
         {/* Bottom rule with live BPM */}
-        <div className="mt-16 pt-6 border-t border-line flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-fg-mute font-mono">
+        <div className="mt-16 pt-6 border-t border-line flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-fg-mute tabular-nums">
           <span>© 2026 · Concept project</span>
           <span className="flex items-center gap-2">
             <span className="block w-1.5 h-1.5 rounded-full bg-accent heartbeat" />

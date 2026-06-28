@@ -46,7 +46,7 @@ export default function PairPage() {
       }}
     >
       <div className="text-center mb-12">
-        <div className="text-[10px] uppercase tracking-[0.32em] font-mono text-fg-mute">
+        <div className="text-[10px] uppercase tracking-[0.32em] tabular-nums text-fg-mute">
           Step 2 · Pair your sensor
         </div>
         <h2 className="mt-4 text-3xl font-display tracking-tight">
@@ -112,7 +112,7 @@ export default function PairPage() {
               />
               Scanning for BlitzMind devices…
             </div>
-            <div className="mt-2 text-[10px] font-mono text-fg-mute uppercase tracking-[0.2em]">
+            <div className="mt-2 text-[10px] tabular-nums text-fg-mute uppercase tracking-[0.2em]">
               BLE range · scanning every 250ms
             </div>
           </div>
@@ -171,7 +171,7 @@ function DeviceCard({
               BlitzMind Controller
             </span>
             <span
-              className="text-[10px] uppercase tracking-[0.18em] font-mono px-1.5 py-0.5 rounded"
+              className="text-[10px] uppercase tracking-[0.18em] tabular-nums px-1.5 py-0.5 rounded"
               style={{
                 background: isPaired
                   ? "rgba(110, 231, 183, 0.15)"
@@ -182,7 +182,7 @@ function DeviceCard({
               {isPaired ? "Paired" : isPairing ? "Pairing…" : "Available"}
             </span>
           </div>
-          <div className="mt-1 text-xs text-fg-mute font-mono">
+          <div className="mt-1 text-xs text-fg-mute tabular-nums">
             CTRL-7421 · BLE · −62 dBm · battery 84%
           </div>
         </div>

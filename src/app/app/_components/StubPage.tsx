@@ -29,7 +29,7 @@ export function StubPage({
             borderColor: "var(--color-app-line)",
           }}
         >
-          <div className="text-[10px] uppercase tracking-[0.32em] font-mono text-fg-mute">
+          <div className="text-[10px] uppercase tracking-[0.32em] tabular-nums text-fg-mute">
             {comingIn}
           </div>
           <h2 className="mt-6 text-2xl font-display tracking-tight text-fg">

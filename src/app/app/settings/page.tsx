@@ -78,7 +78,7 @@ export default function SettingsPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-lg text-fg font-medium">{profile.handle}</div>
-                <div className="text-xs text-fg-mute font-mono mt-1">
+                <div className="text-xs text-fg-mute tabular-nums mt-1">
                   {profile.tier} · {profile.region} · {profile.membership}
                 </div>
                 <div className="mt-2 flex items-baseline gap-3">
@@ -95,7 +95,7 @@ export default function SettingsPage() {
                         }}
                       />
                     </div>
-                    <div className="mt-1 flex items-baseline justify-between text-[10px] font-mono text-fg-mute">
+                    <div className="mt-1 flex items-baseline justify-between text-[10px] tabular-nums text-fg-mute">
                       <span>{profile.rankPoints} RP</span>
                       <span>{profile.rankPointsNext - profile.rankPoints} to next tier</span>
                     </div>
@@ -140,7 +140,7 @@ export default function SettingsPage() {
                     BlitzMind Controller
                   </span>
                   <span
-                    className="text-[10px] uppercase tracking-[0.18em] font-mono px-1.5 py-0.5 rounded"
+                    className="text-[10px] uppercase tracking-[0.18em] tabular-nums px-1.5 py-0.5 rounded"
                     style={{
                       background: "rgba(110, 231, 183, 0.15)",
                       color: "var(--color-calm)",
@@ -149,7 +149,7 @@ export default function SettingsPage() {
                     Paired
                   </span>
                 </div>
-                <div className="mt-1 text-xs text-fg-mute font-mono">
+                <div className="mt-1 text-xs text-fg-mute tabular-nums">
                   CTRL-7421 · BLE · −62 dBm · battery 84%
                 </div>
               </div>
@@ -235,7 +235,7 @@ export default function SettingsPage() {
                   )}
                 </p>
                 {tournamentMode && (
-                  <div className="mt-3 inline-flex items-center gap-2 px-2 py-1 rounded text-[10px] uppercase tracking-[0.18em] font-mono"
+                  <div className="mt-3 inline-flex items-center gap-2 px-2 py-1 rounded text-[10px] uppercase tracking-[0.18em] tabular-nums"
                     style={{
                       background: "rgba(251, 191, 36, 0.12)",
                       color: "var(--color-warn)",
@@ -283,7 +283,7 @@ export default function SettingsPage() {
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <div
-                    className="w-8 h-8 rounded grid place-items-center font-mono text-[10px] shrink-0"
+                    className="w-8 h-8 rounded grid place-items-center tabular-nums text-[10px] shrink-0"
                     style={{
                       background: int.connected
                         ? "var(--color-app-surface-3)"
@@ -301,14 +301,14 @@ export default function SettingsPage() {
                   </div>
                   <div className="min-w-0">
                     <div className="text-sm text-fg">{int.name}</div>
-                    <div className="text-[10px] font-mono text-fg-mute mt-0.5">
+                    <div className="text-[10px] tabular-nums text-fg-mute mt-0.5">
                       {int.connected ? `Last sync · ${int.lastSync}` : "Not connected"}
                     </div>
                   </div>
                 </div>
                 <div>
                   <span
-                    className="text-[10px] uppercase tracking-[0.18em] font-mono px-1.5 py-0.5 rounded"
+                    className="text-[10px] uppercase tracking-[0.18em] tabular-nums px-1.5 py-0.5 rounded"
                     style={{
                       background: int.connected
                         ? "rgba(110, 231, 183, 0.12)"
@@ -381,7 +381,7 @@ function Section({
       <div className="mb-4">
         <div className="flex items-baseline gap-3">
           <span
-            className="text-[10px] uppercase tracking-[0.24em] font-mono"
+            className="text-[10px] uppercase tracking-[0.24em] tabular-nums"
             style={{ color: "var(--color-app-accent)" }}
           >
             {number}

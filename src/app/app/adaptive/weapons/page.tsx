@@ -98,7 +98,7 @@ export default function WeaponsTab() {
                 strokeLinejoin="round"
               />
             </svg>
-            <div className="mt-3 text-[10px] uppercase tracking-[0.18em] font-mono">
+            <div className="mt-3 text-[10px] uppercase tracking-[0.18em] tabular-nums">
               <div style={{ color: "var(--color-app-accent)" }}>Auto-swap</div>
               <div className="text-fg-mute mt-1">when triggered</div>
             </div>
@@ -152,7 +152,7 @@ function WeaponGrid({
 }) {
   if (list.length === 0) {
     return (
-      <div className="text-center py-8 text-xs text-fg-mute font-mono">
+      <div className="text-center py-8 text-xs text-fg-mute tabular-nums">
         {slot === "off" ? "All weapons are assigned" : "No weapons assigned"}
       </div>
     );
@@ -172,11 +172,11 @@ function WeaponGrid({
           <WeaponSilhouette weaponClass={w.class} />
           <div className="mt-2">
             <div className="text-sm text-fg font-medium">{w.name}</div>
-            <div className="text-[10px] text-fg-mute font-mono uppercase tracking-[0.15em]">
+            <div className="text-[10px] text-fg-mute tabular-nums uppercase tracking-[0.15em]">
               {w.class}
             </div>
           </div>
-          <div className="mt-2 flex items-center justify-between text-[10px] font-mono">
+          <div className="mt-2 flex items-center justify-between text-[10px] tabular-nums">
             <span className="text-fg-mute">ACC {w.accuracy}</span>
             <span
               className="px-1.5 py-0.5 rounded uppercase tracking-[0.15em]"

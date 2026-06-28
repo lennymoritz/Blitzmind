@@ -35,7 +35,7 @@ export default function PreferencesPage() {
       }}
     >
       <div className="text-center mb-12">
-        <div className="text-[10px] uppercase tracking-[0.32em] font-mono text-fg-mute">
+        <div className="text-[10px] uppercase tracking-[0.32em] tabular-nums text-fg-mute">
           Step 4 · Preferences
         </div>
         <h2 className="mt-4 text-3xl font-display tracking-tight">
@@ -53,7 +53,7 @@ export default function PreferencesPage() {
           title="Primary game"
           description="Which game's data shows on your dashboard by default. You can switch anytime."
         >
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {games.map((game) => (
               <GameCard
                 key={game.id}
@@ -71,7 +71,7 @@ export default function PreferencesPage() {
           title="Adaptation aggressiveness"
           description="How sensitive the system is to your physiological signals."
         >
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {(["conservative", "balanced", "aggressive"] as const).map((level) => (
               <AggressivenessOption
                 key={level}
@@ -150,7 +150,7 @@ function PrefSection({
       style={{ animationDelay: `${(parseInt(number, 10) - 1) * 0.1}s` }}
     >
       <div className="flex items-baseline gap-3 mb-2">
-        <span className="text-[10px] uppercase tracking-[0.24em] font-mono" style={{ color: "var(--color-app-accent)" }}>
+        <span className="text-[10px] uppercase tracking-[0.24em] tabular-nums" style={{ color: "var(--color-app-accent)" }}>
           {number}
         </span>
         <h3 className="text-lg font-medium text-fg tracking-tight">{title}</h3>
@@ -188,7 +188,7 @@ function GameCard({
         </div>
         <div className="min-w-0">
           <div className="text-sm text-fg font-medium truncate">{game.name}</div>
-          <div className="text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">
+          <div className="text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">
             {game.genre}
           </div>
         </div>
@@ -249,7 +249,7 @@ function AggressivenessOption({
         </div>
       </div>
       <div className="text-xs text-fg-dim leading-relaxed">{data.desc}</div>
-      <div className="mt-2 text-[10px] font-mono text-fg-mute uppercase tracking-[0.18em]">
+      <div className="mt-2 text-[10px] tabular-nums text-fg-mute uppercase tracking-[0.18em]">
         {data.detail}
       </div>
     </button>

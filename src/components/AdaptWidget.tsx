@@ -50,7 +50,7 @@ export function AdaptWidget() {
         <div className="p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-line">
           {/* Section label */}
           <div className="flex items-center justify-between">
-            <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute font-mono">
+            <div className="text-[10px] uppercase tracking-[0.24em] text-fg-mute tabular-nums">
               Trigger / 01
             </div>
             <StatusPill adapting={adapting} />
@@ -68,7 +68,7 @@ export function AdaptWidget() {
               <span className="text-[10px] uppercase tracking-[0.24em] text-fg-mute">
                 Current calm
               </span>
-              <span className="font-mono text-xs text-fg-mute">live</span>
+              <span className="tabular-nums text-xs text-fg-mute">live</span>
             </div>
             <div className="mt-2 flex items-baseline gap-3">
               <span
@@ -110,7 +110,7 @@ export function AdaptWidget() {
               >
                 Adapt when calm drops below
               </label>
-              <span className="font-mono text-sm">
+              <span className="tabular-nums text-sm">
                 {threshold}<span className="text-fg-mute">%</span>
               </span>
             </div>
@@ -123,7 +123,7 @@ export function AdaptWidget() {
               onChange={(e) => setThreshold(Number(e.target.value))}
               className="bm-range mt-4 w-full"
             />
-            <div className="mt-2 flex justify-between text-[10px] font-mono text-fg-mute">
+            <div className="mt-2 flex justify-between text-[10px] tabular-nums text-fg-mute">
               <span>20%</span>
               <span>90%</span>
             </div>
@@ -171,7 +171,7 @@ export function AdaptWidget() {
 function StatusPill({ adapting }: { adapting: boolean }) {
   return (
     <div
-      className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border text-[10px] uppercase tracking-[0.2em] font-mono transition-colors"
+      className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border text-[10px] uppercase tracking-[0.2em] tabular-nums transition-colors"
       style={{
         borderColor: adapting
           ? "var(--color-accent)"
@@ -260,7 +260,7 @@ function MockGameplay({ adapting, calm }: { adapting: boolean; calm: number }) {
             transition={{ duration: 0.3 }}
             className="absolute top-0 inset-x-0 px-4 py-2 bg-accent/15 border-b border-accent/40 backdrop-blur-sm"
           >
-            <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-accent font-mono">
+            <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-accent tabular-nums">
               <div className="flex items-center gap-2">
                 <span className="block w-1.5 h-1.5 rounded-full bg-accent heartbeat" />
                 Stress event detected
@@ -319,7 +319,7 @@ function MockGameplay({ adapting, calm }: { adapting: boolean; calm: number }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="absolute top-6 right-6 text-right space-y-1.5 font-mono text-[10px]"
+            className="absolute top-6 right-6 text-right space-y-1.5 tabular-nums text-[10px]"
           >
             <div className="text-white/80">
               powderytoad1 <span className="text-accent/80">[AK-47]</span> WaVy_K
@@ -335,7 +335,7 @@ function MockGameplay({ adapting, calm }: { adapting: boolean; calm: number }) {
       </AnimatePresence>
 
       {/* Weapon / loadout — bottom-right */}
-      <div className="absolute bottom-6 right-6 text-right font-mono">
+      <div className="absolute bottom-6 right-6 text-right tabular-nums">
         <div className="text-[10px] uppercase tracking-[0.2em] text-white/60">
           Loadout
         </div>
@@ -359,7 +359,7 @@ function MockGameplay({ adapting, calm }: { adapting: boolean; calm: number }) {
       </div>
 
       {/* HRV pulse — bottom-left, visible always */}
-      <div className="absolute bottom-6 left-6 font-mono">
+      <div className="absolute bottom-6 left-6 tabular-nums">
         <div className="text-[10px] uppercase tracking-[0.2em] text-white/60">
           Real-time HRV
         </div>

@@ -193,7 +193,7 @@ export default function AdaptivePreviewLauncher() {
               {/* top */}
               <div className="flex items-end justify-between gap-6">
                 <div>
-                  <div className="mb-1.5 flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-app-text-dim,#5a6478)]">
+                  <div className="mb-1.5 flex items-center gap-2.5 tabular-nums text-[10px] uppercase tracking-[0.22em] text-[var(--color-app-text-dim,#5a6478)]">
                     <span
                       className="h-1.5 w-1.5 rounded-full bg-[var(--color-app-accent,#ff3344)]"
                       style={{ boxShadow: "0 0 8px var(--color-app-accent,#ff3344)" }}
@@ -263,7 +263,7 @@ export default function AdaptivePreviewLauncher() {
                   {step.caption}
                 </p>
                 <div className="flex shrink-0 items-center gap-2.5">
-                  <span className="mr-1 font-mono text-[11px] text-[var(--color-app-text-dim,#5a6478)]">
+                  <span className="mr-1 tabular-nums text-[11px] text-[var(--color-app-text-dim,#5a6478)]">
                     {String(idx + 1).padStart(2, "0")} / {String(STEPS.length).padStart(2, "0")}
                   </span>
                   <div className="flex gap-1.5">
@@ -288,7 +288,7 @@ export default function AdaptivePreviewLauncher() {
                 </div>
               </div>
 
-              <div className="mt-1 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-app-text-dim,#5a6478)] opacity-70">
+              <div className="mt-1 text-center tabular-nums text-[10px] uppercase tracking-[0.14em] text-[var(--color-app-text-dim,#5a6478)] opacity-70">
                 Click the video to advance ·{" "}
                 <kbd className="mx-0.5 rounded-sm border border-[var(--color-app-border-strong,#323b4a)] bg-[var(--color-app-surface,#131820)] px-1.5 py-0.5">
                   ESC
@@ -377,18 +377,18 @@ function OverlayPanel() {
           <div className="truncate text-[12px] font-medium text-white">
             HarnitK#7421
           </div>
-          <div className="mt-px font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--color-app-text-dim,#5a6478)]">
+          <div className="mt-px tabular-nums text-[9px] uppercase tracking-[0.14em] text-[var(--color-app-text-dim,#5a6478)]">
             Competitive
           </div>
         </div>
-        <div className="rounded-[3px] bg-white/5 px-1.5 py-[3px] font-mono text-[11px] text-white">
+        <div className="rounded-[3px] bg-white/5 px-1.5 py-[3px] tabular-nums text-[11px] text-white">
           09:32
         </div>
       </div>
 
       {/* HRV */}
       <div>
-        <div className="mb-1 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--color-app-text-mute,#8b95a8)]">
+        <div className="mb-1 flex items-center justify-between tabular-nums text-[9px] uppercase tracking-[0.18em] text-[var(--color-app-text-mute,#8b95a8)]">
           <span>Real-time HRV</span>
           <span className="text-[var(--color-app-accent,#ff3344)]">Avg 89 BPM</span>
         </div>
@@ -436,7 +436,7 @@ function OverlayPanel() {
 
       {/* Elimination */}
       <div className="mt-auto">
-        <div className="mb-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--color-app-text-mute,#8b95a8)]">
+        <div className="mb-1.5 tabular-nums text-[9px] uppercase tracking-[0.18em] text-[var(--color-app-text-mute,#8b95a8)]">
           Elimination
         </div>
         <div className="flex flex-col gap-1.5">

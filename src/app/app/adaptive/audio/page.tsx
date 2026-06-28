@@ -63,10 +63,10 @@ export default function AudioTab() {
           }}
         >
           <div className="flex items-baseline justify-between mb-3">
-            <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute">
+            <span className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute">
               Volume vs calm score
             </span>
-            <span className="text-[10px] font-mono text-fg-mute">
+            <span className="text-[10px] tabular-nums text-fg-mute">
               Adapts toward {Math.round(volume * 0.6)}% when triggered
             </span>
           </div>
@@ -174,7 +174,7 @@ function VolumeCurve({
         x={toX(threshold) + 3}
         y={padding.y + 9}
         fontSize="8"
-        fontFamily="var(--font-mono)"
+        fontFamily="var(--tabular-nums)"
         fill="var(--color-app-accent)"
         textAnchor="start"
       >
@@ -183,8 +183,8 @@ function VolumeCurve({
       {/* Curve */}
       <path d={points} stroke="var(--color-fg)" strokeWidth="1.5" fill="none" />
       {/* Labels */}
-      <text x={toX(0)} y={height - 1} fontSize="8" fontFamily="var(--font-mono)" fill="var(--color-fg-mute)" textAnchor="start">0% calm</text>
-      <text x={toX(100)} y={height - 1} fontSize="8" fontFamily="var(--font-mono)" fill="var(--color-fg-mute)" textAnchor="end">100%</text>
+      <text x={toX(0)} y={height - 1} fontSize="8" fontFamily="var(--tabular-nums)" fill="var(--color-fg-mute)" textAnchor="start">0% calm</text>
+      <text x={toX(100)} y={height - 1} fontSize="8" fontFamily="var(--tabular-nums)" fill="var(--color-fg-mute)" textAnchor="end">100%</text>
     </svg>
   );
 }

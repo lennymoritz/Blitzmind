@@ -83,7 +83,7 @@ export default function CalibratePage() {
       }}
     >
       <div className="text-center mb-12">
-        <div className="text-[10px] uppercase tracking-[0.32em] font-mono text-fg-mute">
+        <div className="text-[10px] uppercase tracking-[0.32em] tabular-nums text-fg-mute">
           Step 3 · Baseline calibration
         </div>
         <h2 className="mt-4 text-3xl font-display tracking-tight">
@@ -98,7 +98,7 @@ export default function CalibratePage() {
       <div className="glass-panel p-6">
         {/* Top row: status + countdown */}
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] font-mono">
+          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] tabular-nums">
             {state === "idle" && (
               <>
                 <span
@@ -130,7 +130,7 @@ export default function CalibratePage() {
               </>
             )}
           </div>
-          <div className="text-[10px] font-mono text-fg-mute">
+          <div className="text-[10px] tabular-nums text-fg-mute">
             {state === "running" ? `${secondsLeft}s remaining` : `${DURATION_MS / 1000}s capture`}
           </div>
         </div>
@@ -248,7 +248,7 @@ function TraceChart({
           y={height / 2 - 10}
           textAnchor="middle"
           fontSize="10"
-          fontFamily="var(--font-mono)"
+          fontFamily="var(--tabular-nums)"
           fill="var(--color-fg-mute)"
         >
           AWAITING SIGNAL
@@ -329,7 +329,7 @@ function ResultStat({
 }) {
   return (
     <div>
-      <div className="text-[10px] uppercase tracking-[0.22em] font-mono text-fg-mute">
+      <div className="text-[10px] uppercase tracking-[0.22em] tabular-nums text-fg-mute">
         {label}
       </div>
       <div

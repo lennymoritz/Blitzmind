@@ -118,12 +118,12 @@ function ModesView() {
                   >
                     {mode.icon}
                   </span>
-                  <span className="text-[9px] uppercase tracking-[0.18em] font-mono text-fg-mute">
+                  <span className="text-[9px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">
                     {mode.players}
                   </span>
                 </div>
                 <div className="text-sm text-fg font-medium">{mode.name}</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute mt-1">
+                <div className="text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute mt-1">
                   {mode.category === "br"
                     ? "Battle royale"
                     : mode.category === "core"
@@ -153,7 +153,7 @@ function MapsView() {
             {maps.length} maps · sorted by play rate
           </p>
         </div>
-        <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">
+        <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">
           <div className="flex items-center gap-1.5">
             <span className="block w-2 h-2 rounded-full" style={{ background: "var(--color-app-accent)" }} />
             <span>BR</span>
@@ -195,7 +195,7 @@ function MapsView() {
               </svg>
               {/* Category badge */}
               <div
-                className="absolute top-2 right-2 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-[0.18em] font-mono"
+                className="absolute top-2 right-2 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-[0.18em] tabular-nums"
                 style={{
                   background:
                     m.category === "br"
@@ -213,14 +213,14 @@ function MapsView() {
             <div className="p-4">
               <div className="flex items-baseline justify-between">
                 <div className="text-base text-fg font-medium">{m.name}</div>
-                <div className="text-xs font-mono text-fg-mute">{m.size}</div>
+                <div className="text-xs tabular-nums text-fg-mute">{m.size}</div>
               </div>
               <div
                 className="mt-3 pt-3 border-t flex items-baseline justify-between text-xs"
                 style={{ borderColor: "var(--color-app-line)" }}
               >
                 <span className="text-fg-mute">Play rate</span>
-                <span className="font-mono text-fg tabular-nums">{m.playRate}%</span>
+                <span className="tabular-nums text-fg tabular-nums">{m.playRate}%</span>
               </div>
             </div>
           </div>
@@ -256,7 +256,7 @@ function WeaponsView() {
         <section key={cls}>
           <h4 className="text-sm font-medium text-fg mb-3 flex items-baseline gap-2">
             <span>{cls}</span>
-            <span className="text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">
+            <span className="text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">
               {byClass[cls].length} weapons
             </span>
           </h4>
@@ -265,7 +265,7 @@ function WeaponsView() {
             style={{ borderColor: "var(--color-app-line)" }}
           >
             <div
-              className="px-4 py-2.5 grid grid-cols-[2fr_1fr_1fr_1fr] gap-4 text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute border-b"
+              className="px-4 py-2.5 grid grid-cols-[2fr_1fr_1fr_1fr] gap-4 text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute border-b"
               style={{
                 background: "var(--color-app-surface)",
                 borderColor: "var(--color-app-line)",
@@ -300,13 +300,13 @@ function WeaponsView() {
                       }}
                     />
                   </div>
-                  <span className="text-xs font-mono text-fg-dim tabular-nums w-6">
+                  <span className="text-xs tabular-nums text-fg-dim tabular-nums w-6">
                     {w.accuracy}
                   </span>
                 </div>
                 <div>
                   <span
-                    className="text-[10px] uppercase tracking-[0.18em] font-mono px-1.5 py-0.5 rounded"
+                    className="text-[10px] uppercase tracking-[0.18em] tabular-nums px-1.5 py-0.5 rounded"
                     style={{
                       background: "var(--color-app-surface-3)",
                       color:
@@ -320,7 +320,7 @@ function WeaponsView() {
                     {w.recoil}
                   </span>
                 </div>
-                <div className="text-right text-xs font-mono text-fg-mute capitalize">
+                <div className="text-right text-xs tabular-nums text-fg-mute capitalize">
                   {w.role}
                 </div>
               </div>

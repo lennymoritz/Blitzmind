@@ -28,7 +28,7 @@ export function ResearchNote({ note }: { note: ResearchNoteData }) {
     <div className="inline-block">
       <button
         onClick={() => setOpen(!open)}
-        className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.18em] transition-colors"
+        className="inline-flex items-center gap-1.5 text-[10px] tabular-nums uppercase tracking-[0.18em] transition-colors"
         style={{
           color: open ? "var(--color-app-accent)" : "var(--color-fg-mute)",
         }}
@@ -40,7 +40,7 @@ export function ResearchNote({ note }: { note: ResearchNoteData }) {
             x="5"
             y="7.2"
             fontSize="5.5"
-            fontFamily="var(--font-mono)"
+            fontFamily="var(--tabular-nums)"
             fill="currentColor"
             textAnchor="middle"
           >
@@ -61,7 +61,7 @@ export function ResearchNote({ note }: { note: ResearchNoteData }) {
         >
           <div className="flex items-center gap-2 mb-2">
             <span
-              className="text-[9px] uppercase tracking-[0.18em] font-mono px-1.5 py-0.5 rounded"
+              className="text-[9px] uppercase tracking-[0.18em] tabular-nums px-1.5 py-0.5 rounded"
               style={{
                 background: "var(--color-app-surface-3)",
                 color: "var(--color-fg-mute)",
@@ -69,7 +69,7 @@ export function ResearchNote({ note }: { note: ResearchNoteData }) {
             >
               {note.source}
             </span>
-            <span className="text-[10px] font-mono text-fg-mute">
+            <span className="text-[10px] tabular-nums text-fg-mute">
               n = source data
             </span>
           </div>

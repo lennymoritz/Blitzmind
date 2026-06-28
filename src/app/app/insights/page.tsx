@@ -87,7 +87,7 @@ export default function InsightsPage() {
                 Match-weighted average calm score by day × hour
               </p>
             </div>
-            <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">
+            <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">
               <Legend color="var(--color-app-accent)" label="Stressed" />
               <Legend color="var(--color-warn)" label="Elevated" />
               <Legend color="var(--color-calm)" label="Calm" />
@@ -184,7 +184,7 @@ function HeroMetric({
         borderColor: "var(--color-app-line)",
       }}
     >
-      <div className="text-[10px] uppercase tracking-[0.22em] font-mono text-fg-mute">
+      <div className="text-[10px] uppercase tracking-[0.22em] tabular-nums text-fg-mute">
         {label}
       </div>
       <div className="mt-3 text-3xl font-display tabular-nums tracking-tight text-fg">
@@ -196,7 +196,7 @@ function HeroMetric({
         style={{ borderColor: "var(--color-app-line)" }}
       >
         <span
-          className="text-base font-mono tabular-nums"
+          className="text-base tabular-nums tabular-nums"
           style={{ color: trendColor }}
         >
           {trendValue}
@@ -306,7 +306,7 @@ function PerformanceHeatmap() {
           {hours.map((h) => (
             <div
               key={h}
-              className="text-[9px] font-mono text-fg-mute text-center"
+              className="text-[9px] tabular-nums text-fg-mute text-center"
               style={{ height: "14px" }}
             >
               {h % 4 === 0 ? `${h}` : ""}
@@ -320,7 +320,7 @@ function PerformanceHeatmap() {
             key={day}
             className="grid grid-cols-[40px_repeat(24,1fr)] gap-px mb-px"
           >
-            <div className="text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute flex items-center">
+            <div className="text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute flex items-center">
               {day}
             </div>
             {hours.map((h) => {
@@ -350,10 +350,10 @@ function PerformanceHeatmap() {
 
         {/* Footer indicator */}
         <div className="mt-3 flex items-baseline justify-between">
-          <div className="text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">
+          <div className="text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">
             ← Hours (24h)
           </div>
-          <div className="text-[10px] font-mono text-app-accent flex items-center gap-1.5">
+          <div className="text-[10px] tabular-nums text-app-accent flex items-center gap-1.5">
             <span
               className="block w-3 h-3 rounded-[2px] border"
               style={{ borderColor: "var(--color-app-accent)" }}
@@ -407,12 +407,12 @@ function MapStressRanking() {
               <div className="flex items-baseline justify-between mb-1.5">
                 <div className="flex items-baseline gap-2 min-w-0">
                   <span className="text-sm text-fg truncate">{m.name}</span>
-                  <span className="text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">
+                  <span className="text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">
                     {m.size}
                   </span>
                 </div>
                 <span
-                  className="text-xs font-mono tabular-nums whitespace-nowrap"
+                  className="text-xs tabular-nums tabular-nums whitespace-nowrap"
                   style={{
                     color: stressed
                       ? "var(--color-app-accent)"
@@ -442,7 +442,7 @@ function MapStressRanking() {
                 />
               </div>
             </div>
-            <div className="text-[10px] font-mono text-fg-mute text-right">
+            <div className="text-[10px] tabular-nums text-fg-mute text-right">
               {m.matchesPlayed} matches
             </div>
           </div>
@@ -477,7 +477,7 @@ function WeaponDegradation() {
       }}
     >
       <div
-        className="px-4 py-2.5 border-b flex items-center justify-between text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute"
+        className="px-4 py-2.5 border-b flex items-center justify-between text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute"
         style={{ borderColor: "var(--color-app-line)" }}
       >
         <span>Class</span>
@@ -497,7 +497,7 @@ function WeaponDegradation() {
             <div className="flex items-baseline justify-between mb-2">
               <span className="text-sm text-fg">{c.name}</span>
               <span
-                className="text-xs font-mono tabular-nums"
+                className="text-xs tabular-nums tabular-nums"
                 style={{
                   color: isSevereDrop
                     ? "var(--color-app-accent)"
@@ -527,7 +527,7 @@ function WeaponDegradation() {
                 }}
               />
             </div>
-            <div className="mt-1 flex items-baseline justify-between text-[10px] font-mono text-fg-mute">
+            <div className="mt-1 flex items-baseline justify-between text-[10px] tabular-nums text-fg-mute">
               <span style={{ color: "var(--color-app-accent)" }}>
                 {c.stress}% stressed
               </span>
@@ -603,7 +603,7 @@ function WeeklyTrendChart({
 
   return (
     <div>
-      <div className="mb-3 flex items-center gap-4 text-[10px] uppercase tracking-[0.18em] font-mono text-fg-mute">
+      <div className="mb-3 flex items-center gap-4 text-[10px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">
         <div className="flex items-center gap-1.5">
           <span className="block w-3 h-0.5" style={{ background: "var(--color-fg)" }} />
           <span>HRV (ms)</span>
@@ -639,7 +639,7 @@ function WeeklyTrendChart({
               x={pad.x - 6}
               y={toY(v) + 3}
               fontSize="9"
-              fontFamily="var(--font-mono)"
+              fontFamily="var(--tabular-nums)"
               fill="var(--color-fg-mute)"
               textAnchor="end"
             >
@@ -658,10 +658,10 @@ function WeeklyTrendChart({
           strokeDasharray="3 3"
           opacity="0.5"
         />
-        <text x={splitX - 5} y={pad.y - 8} fontSize="9" fontFamily="var(--font-mono)" fill="var(--color-fg-mute)" textAnchor="end">
+        <text x={splitX - 5} y={pad.y - 8} fontSize="9" fontFamily="var(--tabular-nums)" fill="var(--color-fg-mute)" textAnchor="end">
           Prior week
         </text>
-        <text x={splitX + 5} y={pad.y - 8} fontSize="9" fontFamily="var(--font-mono)" fill="var(--color-fg-mute)">
+        <text x={splitX + 5} y={pad.y - 8} fontSize="9" fontFamily="var(--tabular-nums)" fill="var(--color-fg-mute)">
           This week
         </text>
 
@@ -688,7 +688,7 @@ function WeeklyTrendChart({
             x={toX(i)}
             y={h - 4}
             fontSize="9"
-            fontFamily="var(--font-mono)"
+            fontFamily="var(--tabular-nums)"
             fill="var(--color-fg-mute)"
             textAnchor="middle"
           >

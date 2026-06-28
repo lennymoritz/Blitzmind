@@ -98,10 +98,10 @@ export function StressSpike() {
               <div className="flex items-center gap-3">
                 <span className="block w-2 h-2 rounded-full bg-accent heartbeat" />
                 <div>
-                  <div className="text-[10px] uppercase tracking-[0.24em] text-accent font-mono">
+                  <div className="text-[10px] uppercase tracking-[0.24em] text-accent tabular-nums">
                     Stress event detected
                   </div>
-                  <div className="mt-0.5 text-xs text-fg-dim font-mono">
+                  <div className="mt-0.5 text-xs text-fg-dim tabular-nums">
                     Adapting interface · calm 54%
                   </div>
                 </div>

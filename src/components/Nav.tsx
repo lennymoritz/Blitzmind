@@ -54,7 +54,7 @@ export function Nav() {
           {/* Live BPM — the subtle "this page is measuring you" hint */}
           <div className="hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-fg-mute">
             <span className="block w-1.5 h-1.5 rounded-full bg-accent heartbeat" />
-            <span className="font-mono">
+            <span className="tabular-nums">
               <LiveValue base={78} amplitude={3} intervalMs={1200} /> bpm
             </span>
           </div>

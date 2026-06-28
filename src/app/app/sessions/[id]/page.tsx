@@ -86,7 +86,7 @@ export default function SessionDetailPage({ params }: PageProps) {
             <div className="flex-1 min-w-0">
               <div className="flex items-baseline gap-3">
                 <span
-                  className="text-[10px] uppercase tracking-[0.24em] font-mono px-2 py-0.5 rounded"
+                  className="text-[10px] uppercase tracking-[0.24em] tabular-nums px-2 py-0.5 rounded"
                   style={{
                     background:
                       match.result === "victory"
@@ -100,7 +100,7 @@ export default function SessionDetailPage({ params }: PageProps) {
                 >
                   {match.result === "victory" ? "Victory" : "Defeat"}
                 </span>
-                <span className="text-xs text-fg-mute font-mono">
+                <span className="text-xs text-fg-mute tabular-nums">
                   {match.date}
                 </span>
               </div>
@@ -120,7 +120,7 @@ export default function SessionDetailPage({ params }: PageProps) {
                 Full match · {timeline.points.length} samples · {match.stressEvents} stress events flagged
               </p>
             </div>
-            <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.2em] font-mono">
+            <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.2em] tabular-nums">
               <div className="flex items-center gap-2">
                 <span
                   className="block w-2 h-px"
@@ -267,14 +267,14 @@ export default function SessionDetailPage({ params }: PageProps) {
                 />
                 <div>
                   <div className="text-sm text-fg">{f.action}</div>
-                  <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-fg-mute mt-0.5">
+                  <div className="text-[10px] tabular-nums uppercase tracking-[0.18em] text-fg-mute mt-0.5">
                     {f.system}
                   </div>
                 </div>
-                <div className="text-xs text-fg-mute font-mono">
+                <div className="text-xs text-fg-mute tabular-nums">
                   Trigger: {f.trigger}
                 </div>
-                <div className="text-xs text-fg-mute font-mono whitespace-nowrap">
+                <div className="text-xs text-fg-mute tabular-nums whitespace-nowrap">
                   {f.timestamp}
                 </div>
               </div>
@@ -563,7 +563,7 @@ function HrvTimeline({
         x={pad.x + 6}
         y={toY(timeline.calmZone.max) + 11}
         fontSize="9"
-        fontFamily="var(--font-mono)"
+        fontFamily="var(--tabular-nums)"
         fill="rgba(110,231,183,0.6)"
       >
         CALM ZONE
@@ -585,7 +585,7 @@ function HrvTimeline({
             x={pad.x - 6}
             y={toY(v) + 3}
             fontSize="9"
-            fontFamily="var(--font-mono)"
+            fontFamily="var(--tabular-nums)"
             fill="var(--color-fg-mute)"
             textAnchor="end"
           >
@@ -609,7 +609,7 @@ function HrvTimeline({
             x={toX(x)}
             y={h - pad.y + 14}
             fontSize="9"
-            fontFamily="var(--font-mono)"
+            fontFamily="var(--tabular-nums)"
             fill="var(--color-fg-mute)"
             textAnchor="middle"
           >
@@ -684,7 +684,7 @@ function HrvTimeline({
                 x={cx}
                 y={cy - 12}
                 fontSize="9"
-                fontFamily="var(--font-mono)"
+                fontFamily="var(--tabular-nums)"
                 fill="var(--color-app-accent)"
                 textAnchor="middle"
               >
@@ -700,7 +700,7 @@ function HrvTimeline({
         x={pad.x - 24}
         y={h / 2}
         fontSize="9"
-        fontFamily="var(--font-mono)"
+        fontFamily="var(--tabular-nums)"
         fill="var(--color-fg-mute)"
         textAnchor="middle"
         transform={`rotate(-90, ${pad.x - 24}, ${h / 2})`}
@@ -755,7 +755,7 @@ function StatRow({
     >
       <span className="text-sm text-fg-dim">{label}</span>
       <span
-        className="text-sm font-mono tabular-nums"
+        className="text-sm tabular-nums tabular-nums"
         style={{
           color:
             status === "warn"
@@ -795,14 +795,14 @@ function CorrelationCard({
         borderColor: "var(--color-app-line)",
       }}
     >
-      <div className="text-[10px] uppercase tracking-[0.22em] font-mono text-fg-mute">
+      <div className="text-[10px] uppercase tracking-[0.22em] tabular-nums text-fg-mute">
         {label}
       </div>
       <div className="mt-3 flex items-baseline gap-2">
         <span className="text-3xl font-display tabular-nums tracking-tight text-fg">
           {value}
         </span>
-        <span className="text-xs font-mono text-fg-mute">{suffix}</span>
+        <span className="text-xs tabular-nums text-fg-mute">{suffix}</span>
       </div>
       <div
         className="mt-2 text-xs"
@@ -835,7 +835,7 @@ function PrevNextLink({
 
   if (!target) {
     return (
-      <span className="text-xs text-fg-mute font-mono">
+      <span className="text-xs text-fg-mute tabular-nums">
         {direction === "prev" ? "Oldest" : "Newest"}
       </span>
     );
@@ -844,7 +844,7 @@ function PrevNextLink({
   return (
     <Link
       href={`/app/sessions/${target.id}`}
-      className="text-xs text-fg-dim hover:text-fg transition-colors font-mono"
+      className="text-xs text-fg-dim hover:text-fg transition-colors tabular-nums"
     >
       {direction === "prev" ? "← Older" : "Newer →"}
     </Link>

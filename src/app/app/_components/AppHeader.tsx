@@ -50,7 +50,7 @@ export function AppHeader({
       <div className="min-h-16 px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4 flex-wrap">
         <div className="min-w-0">
           {eyebrow && (
-            <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute mb-1">
+            <div className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute mb-1">
               {eyebrow}
             </div>
           )}
@@ -66,7 +66,7 @@ export function AppHeader({
               {title}
             </h1>
             {subtitle && (
-              <span className="text-xs text-fg-mute font-mono truncate">
+              <span className="text-xs text-fg-mute tabular-nums truncate">
                 {subtitle}
               </span>
             )}

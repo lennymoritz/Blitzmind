@@ -44,7 +44,7 @@ export function OnboardingShell({
     <div className="min-h-screen flex flex-col">
       {/* Top bar */}
       <header
-        className="h-16 px-8 flex items-center justify-between border-b shrink-0"
+        className="h-16 px-4 sm:px-8 flex items-center justify-between border-b shrink-0"
         style={{ borderColor: "var(--color-app-line)" }}
       >
         <Link href="/" className="flex items-center gap-2.5 hover:opacity-80">
@@ -62,17 +62,17 @@ export function OnboardingShell({
           </span>
         </Link>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 sm:gap-6">
           {/* Step indicator */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {Array.from({ length: step.totalSteps }).map((_, i) => {
               const n = i + 1;
               const isActive = n === step.stepNumber;
               const isComplete = n < step.stepNumber;
               return (
-                <div key={n} className="flex items-center gap-2">
+                <div key={n} className="flex items-center gap-1.5 sm:gap-2">
                   <div
-                    className="w-6 h-6 rounded-full grid place-items-center text-[10px] font-mono transition-all"
+                    className="w-6 h-6 rounded-full grid place-items-center text-[10px] tabular-nums transition-all"
                     style={{
                       background: isComplete
                         ? "var(--color-app-accent)"
@@ -95,7 +95,7 @@ export function OnboardingShell({
                   </div>
                   {n < step.totalSteps && (
                     <span
-                      className="block w-6 h-px"
+                      className="hidden sm:block w-6 h-px"
                       style={{
                         background: isComplete
                           ? "var(--color-app-accent)"
@@ -110,21 +110,22 @@ export function OnboardingShell({
 
           <Link
             href="/app/home"
-            className="text-xs uppercase tracking-[0.18em] font-mono text-fg-mute hover:text-fg-dim transition-colors"
+            className="text-xs uppercase tracking-[0.18em] tabular-nums text-fg-mute hover:text-fg-dim transition-colors whitespace-nowrap"
           >
-            Skip setup
+            <span className="hidden sm:inline">Skip setup</span>
+            <span className="sm:hidden">Skip</span>
           </Link>
         </div>
       </header>
 
       {/* Content */}
-      <main className="flex-1 px-8 py-12 flex items-center justify-center">
+      <main className="flex-1 px-4 sm:px-8 py-8 sm:py-12 flex items-center justify-center">
         <div className="w-full max-w-3xl">{children}</div>
       </main>
 
       {/* Bottom bar */}
       <footer
-        className="h-20 px-8 flex items-center justify-between border-t shrink-0"
+        className="h-20 px-4 sm:px-8 flex items-center justify-between border-t shrink-0"
         style={{ borderColor: "var(--color-app-line)" }}
       >
         <div>
@@ -140,7 +141,7 @@ export function OnboardingShell({
             </Link>
           )}
         </div>
-        <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-fg-mute">
+        <div className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute">
           Step {step.stepNumber} of {step.totalSteps}
         </div>
         <div>

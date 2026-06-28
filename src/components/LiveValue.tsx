@@ -42,7 +42,7 @@ export function LiveValue({
   }, [base, amplitude, intervalMs]);
 
   return (
-    <span className={`tabular-nums font-mono ${className}`}>
+    <span className={`tabular-nums tabular-nums ${className}`}>
       {value.toFixed(decimals)}
       {suffix}
     </span>
