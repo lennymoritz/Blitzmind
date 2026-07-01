@@ -42,206 +42,149 @@ export default function HomePage() {
         }
       />
 
-      <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-10 max-w-[1400px]">
-        {/* ============ HERO — verdict + live vitals (the above-the-fold) ============ */}
-        <section className="mb-14 lg:mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-6 lg:gap-10 items-start">
-            {/* LEFT — editorial verdict */}
-            <div>
-              <div className="flex items-center gap-3 mb-5">
-                <span className="text-[10px] uppercase tracking-[0.32em] tabular-nums text-fg-mute">
-                  01.
+      <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1400px]">
+        {/* ============ IDENTITY + LIVE STATUS — the only thing above the fold ============ */}
+        <section className="mb-8">
+          <div
+            className="rounded-2xl overflow-hidden p-5 sm:p-6 lg:p-7 relative"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 60% at 90% 0%, rgba(255,51,68,0.07) 0%, transparent 55%), linear-gradient(180deg, var(--color-app-surface-2) 0%, var(--color-app-surface) 100%)",
+              border: "1px solid var(--color-app-line)",
+            }}
+          >
+            {/* Decorative controller — bleeds off the right edge, low opacity,
+                masked so it dissolves into the card. Hidden on small screens
+                where it would collide with the content. */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 right-0 hidden md:block select-none"
+              style={{ width: "48%" }}
+            >
+              <img
+                src="/marketing/controller-three-quarter.png"
+                alt=""
+                className="absolute h-[150%] w-auto max-w-none"
+                style={{
+                  top: "50%",
+                  right: "-8%",
+                  transform: "translateY(-50%) rotate(-8deg)",
+                  opacity: 0.14,
+                  WebkitMaskImage:
+                    "linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)",
+                  maskImage:
+                    "linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)",
+                }}
+              />
+            </div>
+
+            {/* Foreground content wrapper — sits above the decorative layer */}
+            <div className="relative z-10">
+            {/* Identity meta row — small handle on left, live state on right */}
+            <div className="flex items-center justify-between gap-4 mb-4 text-sm">
+              <div className="text-fg-dim min-w-0 truncate">
+                Logged in as{" "}
+                <span className="text-fg" style={{ fontWeight: 500 }}>
+                  {profile.handle}
                 </span>
-                <span className="block h-px w-8" style={{ background: "var(--color-app-line-strong)" }} />
-                <span className="text-[10px] uppercase tracking-[0.24em] text-fg-mute">
-                  Today · {profile.region}
+                <span className="hidden sm:inline">
+                  {" "}· {profile.tier} · {profile.region} ·{" "}
+                  <span className="tabular-nums">{profile.rankPoints.toLocaleString()} RP</span>
                 </span>
               </div>
-              <h2
-                className="font-display text-fg"
-                style={{
-                  fontSize: "clamp(40px, 5.6vw, 68px)",
-                  lineHeight: 1.02,
-                  letterSpacing: "-0.03em",
-                  fontWeight: 500,
-                }}
-              >
-                Welcome back,{" "}
-                <span
-                  style={{
-                    fontStyle: "italic",
-                    color: "var(--color-fg-dim)",
-                    fontWeight: 400,
-                  }}
-                >
-                  Harnit.
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="relative flex h-2 w-2">
+                  <span
+                    className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
+                    style={{ background: "var(--color-calm)" }}
+                  />
+                  <span
+                    className="relative inline-flex rounded-full h-2 w-2"
+                    style={{ background: "var(--color-calm)" }}
+                  />
                 </span>
-              </h2>
-              <div
-                className="mt-3 font-display text-fg-dim italic"
-                style={{
-                  fontSize: "clamp(20px, 2.2vw, 28px)",
-                  lineHeight: 1.2,
-                  letterSpacing: "-0.01em",
-                  fontWeight: 400,
-                }}
-              >
-                Ready when you are.
-              </div>
-              <p className="mt-6 text-base text-fg-dim max-w-lg leading-relaxed">
-                Sensor&rsquo;s paired and reading clean. Your peak window opens at{" "}
-                <span className="text-fg">{aggregates.peakPerformanceWindow}</span>.
-                Pick your moment.
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link
-                  href="/app/live"
-                  className="px-5 py-2.5 rounded-md text-sm font-medium text-white transition-transform hover:-translate-y-px"
-                  style={{ background: "var(--color-app-action)" }}
-                >
-                  Launch Crucible Ops
-                </Link>
-                <Link
-                  href="/app/library"
-                  className="px-5 py-2.5 rounded-md text-sm border text-fg-dim hover:text-fg hover:border-fg-mute transition-colors"
-                  style={{ borderColor: "var(--color-app-line-strong)" }}
-                >
-                  Browse library
-                </Link>
+                <span className="text-[11px] uppercase tracking-[0.22em] text-fg-dim" style={{ fontWeight: 500 }}>
+                  Live
+                </span>
               </div>
             </div>
 
-            {/* RIGHT — live vitals panel */}
-            <div
-              className="rounded-xl border p-6 lg:p-7 relative overflow-hidden"
+            {/* Welcoming display */}
+            <h2
+              className="text-fg"
               style={{
-                background:
-                  "linear-gradient(180deg, var(--color-app-surface) 0%, var(--color-app-bg) 100%)",
-                borderColor: "var(--color-app-line)",
+                fontSize: "clamp(26px, 3vw, 36px)",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+                fontWeight: 500,
               }}
             >
-              <div className="flex items-center justify-between mb-7">
-                <div className="flex items-center gap-2.5">
-                  <span className="relative flex h-2 w-2">
-                    <span
-                      className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
-                      style={{ background: "var(--color-calm)" }}
-                    />
-                    <span
-                      className="relative inline-flex rounded-full h-2 w-2"
-                      style={{ background: "var(--color-calm)" }}
-                    />
-                  </span>
-                  <span className="text-[10px] uppercase tracking-[0.24em] text-fg-mute">
-                    Sensor live · 60 Hz
-                  </span>
-                </div>
-                <span className="text-[10px] uppercase tracking-[0.18em] text-fg-mute">
-                  BLE
-                </span>
-              </div>
+              Welcome back,{" "}
+              <span className="text-fg-dim" style={{ fontWeight: 400 }}>
+                Harnit.
+              </span>
+            </h2>
+            <p className="mt-2 text-sm text-fg-dim max-w-xl leading-relaxed">
+              Coming off a {lastMatch.result === "victory" ? "win" : "tough match"} on{" "}
+              <span className="text-fg">{lastMatch.map}</span>. Sensor&rsquo;s reading clean
+              and your peak window opens at{" "}
+              <span className="text-fg">{aggregates.peakPerformanceWindow}</span>.
+            </p>
 
-              <div className="space-y-4">
-                <VitalRow
-                  label="HRV"
-                  value={<LiveValue base={72} amplitude={3} />}
-                  unit="ms"
-                  trend="stable"
-                  trendColor="var(--color-calm)"
-                />
-                <VitalRow
-                  label="HR"
-                  value={<LiveValue base={68} amplitude={4} />}
-                  unit="bpm"
-                  trend="resting"
-                  trendColor="var(--color-calm)"
-                />
-                <VitalRow
-                  label="Calm"
-                  value="65"
-                  unit="%"
-                  trend="active"
-                  trendColor="var(--color-fg-dim)"
-                />
-              </div>
+            {/* Vitals strip — borderless, 5-col, whitespace separates */}
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+              <Stat label="HRV" value={<LiveValue base={72} amplitude={3} />} unit="ms" tag="stable" tagColor="var(--color-calm)" />
+              <Stat label="HR" value={<LiveValue base={68} amplitude={4} />} unit="bpm" tag="resting" tagColor="var(--color-calm)" />
+              <Stat label="Calm" value="65" unit="%" tag="active" tagColor="var(--color-fg-dim)" />
+              <Stat label="Battery" value="84" unit="%" tag="ok" tagColor="var(--color-fg-dim)" />
+              <Stat label="Link" value="60" unit="Hz" tag="BLE" tagColor="var(--color-fg-dim)" />
+            </div>
 
-              <div className="mt-6 h-9">
-                <EcgLine
-                  stroke="var(--color-calm)"
-                  strokeWidth={1.2}
-                  amplitude={0.6}
-                  speed={16}
-                  className="w-full h-full opacity-70"
-                />
-              </div>
+            {/* ECG line — subtle, just a thin signal trace */}
+            <div className="mt-5 h-6 -mx-2">
+              <EcgLine
+                stroke="var(--color-calm)"
+                strokeWidth={1}
+                amplitude={0.5}
+                speed={18}
+                className="w-full h-full opacity-60"
+              />
+            </div>
 
-              <div
-                className="mt-5 pt-4 border-t flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-fg-mute tabular-nums"
-                style={{ borderColor: "var(--color-app-line)" }}
+            {/* Action row */}
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <Link
+                href="/app/live"
+                className="px-5 py-2 rounded-md text-sm text-white transition-transform hover:-translate-y-px"
+                style={{ background: "var(--color-app-action)", fontWeight: 500 }}
               >
-                <span>Device DV.01</span>
-                <span>Battery 84%</span>
-              </div>
+                Launch Crucible Ops
+              </Link>
+              <Link
+                href="/app/library"
+                className="px-5 py-2 rounded-md text-sm text-fg-dim hover:text-fg transition-colors"
+                style={{ fontWeight: 500 }}
+              >
+                Browse library
+              </Link>
             </div>
+            </div>{/* /z-10 content wrapper */}
           </div>
         </section>
 
-        {/* ============ STATUS STRIP — three compact cards ============ */}
-        <section className="mb-14 lg:mb-16">
-          <SectionMarker number="02" eyebrow="Status" title="Where you stand right now." />
-          <div
-            className="rounded-lg border grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden"
-            style={{ background: "var(--color-app-line)", borderColor: "var(--color-app-line)" }}
-          >
-            {/* Controller */}
-            <div className="p-5" style={{ background: "var(--color-app-surface)" }}>
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-fg-mute">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: "var(--color-calm)" }} />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ background: "var(--color-calm)" }} />
-                </span>
-                Controller
-              </div>
-              <div className="mt-3 text-2xl font-display tracking-tight" style={{ color: "var(--color-calm)" }}>
-                Connected
-              </div>
-              <div className="mt-2 text-[11px] tabular-nums text-fg-mute">
-                BLE · 60Hz · Battery 84%
-              </div>
-            </div>
-
-            {/* Rank */}
-            <div className="p-5" style={{ background: "var(--color-app-surface)" }}>
-              <div className="text-[10px] uppercase tracking-[0.22em] text-fg-mute">Rank</div>
-              <div className="mt-3 text-2xl font-display tracking-tight text-fg">{profile.tier}</div>
-              <div className="mt-4 h-1.5 rounded-full overflow-hidden" style={{ background: "var(--color-app-line)" }}>
-                <div className="h-full rounded-full" style={{ width: `${RANK_PCT}%`, background: "var(--color-app-accent)" }} />
-              </div>
-              <div className="mt-2 flex justify-between text-[10px] tabular-nums text-fg-mute">
-                <span>{RP_TO_NEXT} RP to next</span>
-                <span className="text-fg-dim">{profile.rankPoints.toLocaleString()} / {profile.rankPointsNext.toLocaleString()}</span>
-              </div>
-            </div>
-
-            {/* This week */}
-            <div className="p-5" style={{ background: "var(--color-app-surface)" }}>
-              <div className="text-[10px] uppercase tracking-[0.22em] text-fg-mute">This week</div>
-              <div className="mt-3 flex items-baseline gap-2">
-                <span className="text-4xl font-display tabular-nums tracking-tight">{aggregates.winRate}%</span>
-                <span className="text-xs tabular-nums" style={{ color: "var(--color-calm)" }}>+{aggregates.trends.winRate.delta}%</span>
-              </div>
-              <div className="text-[10px] tabular-nums text-fg-mute mt-1">win rate</div>
-              <div className="mt-3">
-                <Sparkline data={aggregates.trends.winRate.series} color="var(--color-calm)" height={28} />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ============ YOUR GAMES — launcher ============ */}
-        <section className="mb-14 lg:mb-16">
-          <div className="flex items-baseline justify-between mb-6">
-            <SectionMarker number="03" eyebrow="Launcher" title="Your games." inline />
+        {/* ============ ACTIVE GAMES — launcher ============ */}
+        <section className="mb-10">
+          <div className="flex items-baseline justify-between mb-4">
+            <h2
+              className="text-fg"
+              style={{
+                fontSize: "clamp(18px, 1.8vw, 22px)",
+                letterSpacing: "-0.025em",
+                fontWeight: 500,
+              }}
+            >
+              Active games
+            </h2>
             <Link href="/app/library" className="text-xs text-fg-dim hover:text-fg transition-colors">
               Open library →
             </Link>
@@ -253,84 +196,106 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ============ LAST SESSION + 7-DAY VIEW (2-col, paired) ============ */}
-        <section className="mb-14 lg:mb-16">
-          <SectionMarker number="04" eyebrow="Looking back" title="Where you've been." />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {/* Last session takeaway */}
-            <div className="glass-panel p-5 lg:p-6">
-              <div className="flex items-start justify-between">
-                <CardLabel>Last session takeaway</CardLabel>
+        {/* ============ THIS WEEK + LAST SESSION ============ */}
+        <section className="mb-10">
+          <div className="flex items-baseline justify-between mb-4">
+            <h2
+              className="text-fg"
+              style={{
+                fontSize: "clamp(18px, 1.8vw, 22px)",
+                letterSpacing: "-0.025em",
+                fontWeight: 500,
+              }}
+            >
+              This week
+            </h2>
+            <Link href="/app/insights" className="text-xs text-fg-dim hover:text-fg transition-colors">
+              Open insights →
+            </Link>
+          </div>
+
+          <div
+            className="rounded-2xl overflow-hidden"
+            style={{
+              background: "var(--color-app-surface-2)",
+              border: "1px solid var(--color-app-line-strong)",
+              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+            }}
+          >
+            {/* KPI strip — three metrics inline, compact */}
+            <div className="grid grid-cols-3 divide-x" style={{ borderColor: "var(--color-app-line)" }}>
+              <MiniKPI
+                label="Avg calm"
+                value={`${aggregates.avgCalm}%`}
+                delta={`${aggregates.calmDelta}%`}
+                series={aggregates.trends.avgCalm.series}
+                positive={aggregates.calmDelta >= 0}
+              />
+              <MiniKPI
+                label="Stress events"
+                value={aggregates.trends.stressEvents.series.at(-1)!.toString()}
+                delta={`+${aggregates.trends.stressEvents.delta}`}
+                series={aggregates.trends.stressEvents.series}
+                positive={false}
+              />
+              <MiniKPI
+                label="Win rate"
+                value={`${aggregates.winRate}%`}
+                delta={`+${aggregates.trends.winRate.delta}%`}
+                series={aggregates.trends.winRate.series}
+                positive={true}
+              />
+            </div>
+
+            {/* Slim footer — peak window + last session on one line */}
+            <div
+              className="px-5 py-3.5 border-t flex flex-wrap items-center gap-x-6 gap-y-2 text-sm"
+              style={{ borderColor: "var(--color-app-line)", background: "var(--color-app-bg)" }}
+            >
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-[10px] uppercase tracking-[0.18em] text-fg-dim shrink-0">Peak</span>
+                <span className="text-fg tabular-nums truncate" style={{ fontWeight: 500 }}>
+                  {aggregates.peakPerformanceWindow}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-[10px] uppercase tracking-[0.18em] text-fg-dim shrink-0">Last</span>
+                <span className="text-fg truncate" style={{ fontWeight: 500 }}>{lastMatch.map}</span>
                 <span
-                  className="text-[10px] uppercase tracking-[0.18em] tabular-nums px-1.5 py-0.5 rounded"
+                  className="text-[10px] uppercase tracking-[0.16em] tabular-nums px-1.5 py-0.5 rounded shrink-0"
                   style={{
                     background: lastMatch.result === "victory" ? "rgba(110, 231, 183, 0.12)" : "rgba(255, 51, 68, 0.12)",
                     color: lastMatch.result === "victory" ? "var(--color-calm)" : "var(--color-app-accent)",
+                    fontWeight: 600,
                   }}
                 >
-                  {lastMatch.result === "victory" ? "Victory" : "Defeat"}
+                  {lastMatch.result === "victory" ? "Win" : "Loss"}
                 </span>
+                <span className="text-fg-dim tabular-nums shrink-0">KDA {lastMatch.kda}</span>
               </div>
-              <div className="mt-3 text-[10px] uppercase tracking-[0.18em] text-fg-mute">
-                {lastMatch.mode} · {lastMatch.map}
-              </div>
-              <p className="mt-3 text-sm text-fg leading-relaxed">{lastMatch.highlight}</p>
-              <div className="mt-5 grid grid-cols-3 gap-3 pt-5 border-t" style={{ borderColor: "var(--color-app-line)" }}>
-                <MicroStat label="KDA" value={lastMatch.kda.toString()} />
-                <MicroStat label="Calm" value={`${lastMatch.calmPercent}%`} />
-                <MicroStat label="Stress events" value={lastMatch.stressEvents.toString()} accent={lastMatch.stressEvents > 5} />
-              </div>
-              <Link href={`/app/sessions/${lastMatch.id}`} className="mt-5 inline-flex items-center gap-1.5 text-xs text-fg-dim hover:text-fg transition-colors">
-                Open match report →
+              <Link
+                href={`/app/sessions/${lastMatch.id}`}
+                className="ml-auto text-xs text-fg-dim hover:text-fg transition-colors shrink-0"
+              >
+                Match report →
               </Link>
             </div>
-
-            {/* 7-day view — stacked sparklines (half-width version) */}
-            <Link
-              href="/app/insights"
-              className="group block glass-panel p-5 lg:p-6 transition-all duration-200 hover:-translate-y-0.5"
-              style={{ borderColor: "var(--color-app-line)" }}
-            >
-              <div className="flex items-start justify-between">
-                <CardLabel>Seven-day view</CardLabel>
-                <span className="inline-flex items-center gap-1.5 text-xs text-fg-dim transition-colors group-hover:text-fg">
-                  Open insights
-                  <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                </span>
-              </div>
-              <div className="mt-5 space-y-5">
-                <TrendRow
-                  label="Avg calm"
-                  value={`${aggregates.avgCalm}%`}
-                  delta={`${aggregates.calmDelta}%`}
-                  series={aggregates.trends.avgCalm.series}
-                  positive={aggregates.calmDelta >= 0}
-                />
-                <TrendRow
-                  label="Stress events"
-                  value={aggregates.trends.stressEvents.series.at(-1)!.toString()}
-                  delta={`+${aggregates.trends.stressEvents.delta}`}
-                  series={aggregates.trends.stressEvents.series}
-                  positive={false}
-                />
-                <div className="pt-5 border-t" style={{ borderColor: "var(--color-app-line)" }}>
-                  <div className="text-xs text-fg-mute mb-1">Peak window</div>
-                  <div className="text-xl font-display tracking-tight text-fg">
-                    {aggregates.peakPerformanceWindow}
-                  </div>
-                  <div className="text-[10px] tabular-nums text-fg-mute mt-1.5">
-                    Your best ranked results land here
-                  </div>
-                </div>
-              </div>
-            </Link>
           </div>
         </section>
 
         {/* ============ RECENT MATCHES ============ */}
-        <section className="mb-14 lg:mb-16">
-          <div className="flex items-baseline justify-between mb-6">
-            <SectionMarker number="05" eyebrow="History" title="Recent matches." inline />
+        <section className="mb-10">
+          <div className="flex items-baseline justify-between mb-4">
+            <h2
+              className="text-fg"
+              style={{
+                fontSize: "clamp(18px, 1.8vw, 22px)",
+                letterSpacing: "-0.025em",
+                fontWeight: 500,
+              }}
+            >
+              Recent matches
+            </h2>
             <Link href="/app/sessions" className="text-xs text-fg-dim hover:text-fg transition-colors">View all →</Link>
           </div>
 
@@ -346,12 +311,12 @@ export default function HomePage() {
                   <div className="w-1 h-10 rounded-full shrink-0" style={{ background: match.result === "victory" ? "var(--color-calm)" : "var(--color-app-accent)" }} />
                   <div className="min-w-0 flex-1">
                     <div className="text-sm text-fg truncate">{match.mode}</div>
-                    <div className="text-xs text-fg-mute tabular-nums mt-0.5 truncate">{match.map} · {match.duration}</div>
+                    <div className="text-xs text-fg-dim tabular-nums mt-0.5 truncate">{match.map} · {match.duration}</div>
                   </div>
                   <div className="hidden sm:flex items-center gap-6">
                     <MatchStat label="KDA" value={match.kda.toString()} />
                     <div className="text-right">
-                      <div className="text-[9px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">Calm</div>
+                      <div className="text-[9px] uppercase tracking-[0.18em] tabular-nums text-fg-dim">Calm</div>
                       <div className="mt-1 flex items-center gap-2 justify-end">
                         <CalmBar value={match.calmPercent} result={match.result} />
                         <span className="text-sm tabular-nums tabular-nums text-fg w-9 text-right">{match.calmPercent}%</span>
@@ -359,7 +324,7 @@ export default function HomePage() {
                     </div>
                     <MatchStat label="Stress" value={match.stressEvents.toString()} accent={match.stressEvents > 5} />
                   </div>
-                  <div className="text-xs text-fg-mute tabular-nums whitespace-nowrap shrink-0">{match.date}</div>
+                  <div className="text-xs text-fg-dim tabular-nums whitespace-nowrap shrink-0">{match.date}</div>
                 </div>
               </Link>
             ))}
@@ -409,8 +374,8 @@ function GameLauncher({
       <div className="relative z-10 flex flex-col gap-5">
         <div className="flex items-center gap-3">
           <span
-            className="grid place-items-center w-11 h-11 rounded-lg font-display text-base shrink-0"
-            style={{ background: game.accent, color: "#0a0a0b" }}
+            className="grid place-items-center w-11 h-11 rounded-lg text-base shrink-0"
+            style={{ background: game.accent, color: "#0a0a0b", fontWeight: 600, letterSpacing: "-0.02em" }}
           >
             {game.icon}
           </span>
@@ -426,13 +391,13 @@ function GameLauncher({
                 </span>
               )}
             </div>
-            <div className="text-[10px] uppercase tracking-[0.16em] tabular-nums text-fg-mute mt-1">
+            <div className="text-[10px] uppercase tracking-[0.16em] tabular-nums text-fg-dim mt-1">
               {game.genre}
             </div>
           </div>
         </div>
 
-        <div className="flex items-center justify-between text-[10px] tabular-nums uppercase tracking-[0.16em] text-fg-mute">
+        <div className="flex items-center justify-between text-[10px] tabular-nums uppercase tracking-[0.16em] text-fg-dim">
           <span>Last played</span>
           <span className="text-fg-dim">{game.lastPlayed}</span>
         </div>
@@ -459,92 +424,108 @@ function GameLauncher({
 
 
 function CardLabel({ children }: { children: React.ReactNode }) {
-  return <div className="text-[10px] uppercase tracking-[0.24em] tabular-nums text-fg-mute">{children}</div>;
+  return <div className="text-[10px] uppercase tracking-[0.24em] tabular-nums text-fg-dim">{children}</div>;
 }
 
 /**
- * VitalRow — a single row in the hero's Live Vitals panel.
- * label (small) — large value + small unit — trend tag.
+ * Stat — a single cell in the horizontal vitals strip at the top of the
+ * dashboard. Borderless, whitespace-separated. Uppercase label · big
+ * tabular value · unit · small status tag underneath.
  */
-function VitalRow({
+function Stat({
   label,
   value,
   unit,
-  trend,
-  trendColor,
+  tag,
+  tagColor,
 }: {
   label: string;
   value: React.ReactNode;
   unit: string;
-  trend: string;
-  trendColor: string;
+  tag: string;
+  tagColor: string;
 }) {
   return (
-    <div className="flex items-baseline gap-4 py-1">
-      <div className="w-14 shrink-0 text-[10px] uppercase tracking-[0.22em] text-fg-mute">
+    <div>
+      <div className="text-[10px] uppercase tracking-[0.22em] text-fg-dim mb-1">
         {label}
       </div>
-      <div className="flex-1 flex items-baseline gap-1.5">
+      <div className="flex items-baseline gap-1.5">
         <span
-          className="font-display tracking-tight text-fg tabular-nums"
-          style={{ fontSize: "clamp(28px, 3vw, 36px)", lineHeight: 1, fontWeight: 500 }}
+          className="text-fg tabular-nums"
+          style={{
+            fontSize: "clamp(22px, 2.4vw, 28px)",
+            lineHeight: 1,
+            letterSpacing: "-0.02em",
+            fontWeight: 500,
+          }}
         >
           {value}
         </span>
-        <span className="text-xs text-fg-mute tabular-nums">{unit}</span>
+        <span className="text-xs text-fg-dim tabular-nums">{unit}</span>
       </div>
-      <div className="text-[11px] tracking-tight" style={{ color: trendColor }}>
-        {trend}
+      <div className="mt-1 text-[10px] uppercase tracking-[0.18em]" style={{ color: tagColor, fontWeight: 500 }}>
+        {tag}
       </div>
     </div>
   );
 }
 
 /**
- * SectionMarker — the editorial numbered section header used across the
- * dashboard. Mirrors the marketing site's "01. — THE PROBLEM" loop
- * pattern: small numbered eyebrow + hairline + label, then a Fraunces
- * display title beneath.
- *
- * `inline` packs it tighter for sections that have a right-side action
- * (e.g. "View all →") sitting next to the title in a flex row.
+ * MiniKPI — one compact metric cell in the This Week strip.
+ * Label · value + delta · a short row of 7 tiny day-bars beneath.
+ * Vertical + tight so three fit in one screen-width row at low height.
  */
-function SectionMarker({
-  number,
-  eyebrow,
-  title,
-  inline = false,
+function MiniKPI({
+  label,
+  value,
+  delta,
+  series,
+  positive,
 }: {
-  number: string;
-  eyebrow: string;
-  title: string;
-  inline?: boolean;
+  label: string;
+  value: string;
+  delta: string;
+  series: readonly number[];
+  positive: boolean;
 }) {
+  const color = positive ? "var(--color-calm)" : "var(--color-app-accent)";
+  const max = Math.max(...series);
+  const min = Math.min(...series);
+  const span = max - min || 1;
   return (
-    <div className={inline ? "" : "mb-6"}>
-      <div className="flex items-center gap-3 mb-2.5">
-        <span className="text-[10px] uppercase tracking-[0.32em] tabular-nums text-fg-mute">
-          {number}.
-        </span>
+    <div className="px-4 sm:px-5 py-4" style={{ borderColor: "var(--color-app-line)" }}>
+      <div className="text-[10px] uppercase tracking-[0.2em] text-fg-dim mb-2 truncate">
+        {label}
+      </div>
+      <div className="flex items-baseline gap-2 mb-3">
         <span
-          className="block h-px w-8"
-          style={{ background: "var(--color-app-line-strong)" }}
-        />
-        <span className="text-[10px] uppercase tracking-[0.24em] tabular-nums text-fg-mute">
-          {eyebrow}
+          className="text-fg tabular-nums"
+          style={{ fontSize: "clamp(20px, 2.2vw, 26px)", letterSpacing: "-0.02em", fontWeight: 500 }}
+        >
+          {value}
+        </span>
+        <span className="text-[11px] tabular-nums" style={{ color, fontWeight: 500 }}>
+          {delta}
         </span>
       </div>
-      <h3
-        className="font-display text-fg"
-        style={{
-          fontSize: "clamp(20px, 2vw, 26px)",
-          letterSpacing: "-0.02em",
-          lineHeight: 1.1,
-          fontWeight: 500,
-        }}
-      >
-        {title}
-      </h3>
+      <div className="h-5 flex items-end gap-0.5">
+        {series.map((v, i) => {
+          const height = ((v - min) / span) * 100;
+          const isLast = i === series.length - 1;
+          return (
+            <div
+              key={i}
+              className="flex-1 rounded-[1px]"
+              style={{
+                height: `${Math.max(16, height)}%`,
+                background: color,
+                opacity: isLast ? 1 : 0.28,
+              }}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -552,8 +533,8 @@ function SectionMarker({
 function MicroStat({ label, value, accent = false }: { label: string; value: string; accent?: boolean }) {
   return (
     <div>
-      <div className="text-[9px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">{label}</div>
-      <div className="mt-1 text-lg font-display tabular-nums tracking-tight" style={{ color: accent ? "var(--color-app-accent)" : "var(--color-fg)" }}>{value}</div>
+      <div className="text-[9px] uppercase tracking-[0.18em] tabular-nums text-fg-dim">{label}</div>
+      <div className="mt-1 text-lg tabular-nums" style={{ color: accent ? "var(--color-app-accent)" : "var(--color-fg)", letterSpacing: "-0.02em", fontWeight: 500 }}>{value}</div>
     </div>
   );
 }
@@ -561,24 +542,8 @@ function MicroStat({ label, value, accent = false }: { label: string; value: str
 function MatchStat({ label, value, accent = false }: { label: string; value: string; accent?: boolean }) {
   return (
     <div className="text-right">
-      <div className="text-[9px] uppercase tracking-[0.18em] tabular-nums text-fg-mute">{label}</div>
-      <div className="mt-0.5 text-sm tabular-nums tabular-nums" style={{ color: accent ? "var(--color-app-accent)" : "var(--color-fg)" }}>{value}</div>
-    </div>
-  );
-}
-
-function TrendRow({ label, value, delta, series, positive }: { label: string; value: string; delta: string; series: readonly number[]; positive: boolean }) {
-  const color = positive ? "var(--color-calm)" : "var(--color-app-accent)";
-  return (
-    <div>
-      <div className="flex items-baseline justify-between mb-1">
-        <span className="text-xs text-fg-mute">{label}</span>
-        <span className="flex items-baseline gap-2">
-          <span className="text-sm tabular-nums tabular-nums text-fg">{value}</span>
-          <span className="text-[10px] tabular-nums" style={{ color }}>{delta}</span>
-        </span>
-      </div>
-      <Sparkline data={series} color={color} height={28} />
+      <div className="text-[9px] uppercase tracking-[0.18em] tabular-nums text-fg-dim">{label}</div>
+      <div className="mt-0.5 text-sm tabular-nums" style={{ color: accent ? "var(--color-app-accent)" : "var(--color-fg)", fontWeight: 600 }}>{value}</div>
     </div>
   );
 }

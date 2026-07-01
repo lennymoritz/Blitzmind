@@ -1,9 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* Type */
+  /* Type
+     Hanken Grotesk is the platform's primary typeface — refined geometric
+     sans with elegant character at medium weights. Replaces Switzer (too
+     heavy/brutal at bold) and Inter Tight (too generic / AI-default).
+     Marketing keeps Fraunces + Inter Tight in its own scope. */
   --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, Menlo, monospace;
 
   /* Surface palette — deep near-black through to bone */

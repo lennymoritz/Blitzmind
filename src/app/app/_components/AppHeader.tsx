@@ -50,23 +50,24 @@ export function AppHeader({
       <div className="min-h-16 px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4 flex-wrap">
         <div className="min-w-0">
           {eyebrow && (
-            <div className="text-[10px] uppercase tracking-[0.2em] tabular-nums text-fg-mute mb-1">
+            <div className="text-[10px] uppercase tracking-[0.22em] tabular-nums text-fg-dim mb-1.5">
               {eyebrow}
             </div>
           )}
           <div className="flex items-baseline gap-3">
             <h1
-              className="font-display font-medium text-fg truncate"
+              className="font-sans text-fg truncate"
               style={{
                 fontSize: "clamp(22px, 2.4vw, 30px)",
-                letterSpacing: "-0.025em",
+                letterSpacing: "-0.02em",
                 lineHeight: 1.05,
+                fontWeight: 500,
               }}
             >
               {title}
             </h1>
             {subtitle && (
-              <span className="text-xs text-fg-mute tabular-nums truncate">
+              <span className="text-xs text-fg-dim tabular-nums truncate">
                 {subtitle}
               </span>
             )}
