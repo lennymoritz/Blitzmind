@@ -5,7 +5,6 @@ import Image from "next/image";
 import { AppHeader, PrimaryButton, SecondaryButton } from "../_components/AppHeader";
 import { profile, aggregates, matches, games } from "../_lib/mockData";
 import { LiveValue } from "../../../components/LiveValue";
-import { EcgLine } from "../../../components/EcgLine";
 import { Sparkline, CalmBar } from "../../../components/MiniChart";
 
 /**
@@ -43,132 +42,165 @@ export default function HomePage() {
       />
 
       <div className="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 max-w-[1400px]">
-        {/* ============ IDENTITY + LIVE STATUS — the only thing above the fold ============ */}
+        {/* ============ SPLIT HERO — stat panel + featured game tile ============ */}
         <section className="mb-8">
-          <div
-            className="rounded-2xl overflow-hidden p-5 sm:p-6 lg:p-7 relative"
-            style={{
-              background:
-                "radial-gradient(ellipse 80% 60% at 90% 0%, rgba(255,51,68,0.07) 0%, transparent 55%), linear-gradient(180deg, var(--color-app-surface-2) 0%, var(--color-app-surface) 100%)",
-              border: "1px solid var(--color-app-line)",
-            }}
-          >
-            {/* Decorative controller — bleeds off the right edge, low opacity,
-                masked so it dissolves into the card. Hidden on small screens
-                where it would collide with the content. */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1.55fr_1fr] gap-4">
+            {/* LEFT — identity + vitals panel */}
             <div
-              aria-hidden
-              className="pointer-events-none absolute inset-y-0 right-0 hidden md:block select-none"
-              style={{ width: "48%" }}
-            >
-              <img
-                src="/marketing/controller-three-quarter.png"
-                alt=""
-                className="absolute h-[150%] w-auto max-w-none"
-                style={{
-                  top: "50%",
-                  right: "-8%",
-                  transform: "translateY(-50%) rotate(-8deg)",
-                  opacity: 0.14,
-                  WebkitMaskImage:
-                    "linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)",
-                  maskImage:
-                    "linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%)",
-                }}
-              />
-            </div>
-
-            {/* Foreground content wrapper — sits above the decorative layer */}
-            <div className="relative z-10">
-            {/* Identity meta row — small handle on left, live state on right */}
-            <div className="flex items-center justify-between gap-4 mb-4 text-sm">
-              <div className="text-fg-dim min-w-0 truncate">
-                Logged in as{" "}
-                <span className="text-fg" style={{ fontWeight: 500 }}>
-                  {profile.handle}
-                </span>
-                <span className="hidden sm:inline">
-                  {" "}· {profile.tier} · {profile.region} ·{" "}
-                  <span className="tabular-nums">{profile.rankPoints.toLocaleString()} RP</span>
-                </span>
-              </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <span className="relative flex h-2 w-2">
-                  <span
-                    className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
-                    style={{ background: "var(--color-calm)" }}
-                  />
-                  <span
-                    className="relative inline-flex rounded-full h-2 w-2"
-                    style={{ background: "var(--color-calm)" }}
-                  />
-                </span>
-                <span className="text-[11px] uppercase tracking-[0.22em] text-fg-dim" style={{ fontWeight: 500 }}>
-                  Live
-                </span>
-              </div>
-            </div>
-
-            {/* Welcoming display */}
-            <h2
-              className="text-fg"
+              className="rounded-2xl overflow-hidden p-5 sm:p-6 lg:p-7 relative"
               style={{
-                fontSize: "clamp(26px, 3vw, 36px)",
-                letterSpacing: "-0.02em",
-                lineHeight: 1.05,
-                fontWeight: 500,
+                background:
+                  "radial-gradient(ellipse 80% 70% at 92% 0%, rgba(255,51,68,0.08) 0%, transparent 55%), linear-gradient(180deg, var(--color-app-surface-2) 0%, var(--color-app-surface) 100%)",
+                border: "1px solid var(--color-app-line)",
               }}
             >
-              Welcome back,{" "}
-              <span className="text-fg-dim" style={{ fontWeight: 400 }}>
-                Harnit.
-              </span>
-            </h2>
-            <p className="mt-2 text-sm text-fg-dim max-w-xl leading-relaxed">
-              Coming off a {lastMatch.result === "victory" ? "win" : "tough match"} on{" "}
-              <span className="text-fg">{lastMatch.map}</span>. Sensor&rsquo;s reading clean
-              and your peak window opens at{" "}
-              <span className="text-fg">{aggregates.peakPerformanceWindow}</span>.
-            </p>
+              {/* Decorative controller — full presence, no fade mask */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 right-0 hidden md:block select-none"
+                style={{ width: "52%" }}
+              >
+                <img
+                  src="/marketing/controller-three-quarter.png"
+                  alt=""
+                  className="absolute h-[150%] w-auto max-w-none"
+                  style={{
+                    top: "50%",
+                    right: "-10%",
+                    transform: "translateY(-50%) rotate(-8deg)",
+                    opacity: 0.38,
+                  }}
+                />
+              </div>
 
-            {/* Vitals strip — borderless, 5-col, whitespace separates */}
-            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
-              <Stat label="HRV" value={<LiveValue base={72} amplitude={3} />} unit="ms" tag="stable" tagColor="var(--color-calm)" />
-              <Stat label="HR" value={<LiveValue base={68} amplitude={4} />} unit="bpm" tag="resting" tagColor="var(--color-calm)" />
-              <Stat label="Calm" value="65" unit="%" tag="active" tagColor="var(--color-fg-dim)" />
-              <Stat label="Battery" value="84" unit="%" tag="ok" tagColor="var(--color-fg-dim)" />
-              <Stat label="Link" value="60" unit="Hz" tag="BLE" tagColor="var(--color-fg-dim)" />
+              {/* Foreground content — above the decorative layer */}
+              <div className="relative z-10">
+                {/* Identity meta row */}
+                <div className="flex items-center justify-between gap-4 mb-4 text-sm">
+                  <div className="text-fg-dim min-w-0 truncate">
+                    Logged in as{" "}
+                    <span className="text-fg" style={{ fontWeight: 500 }}>
+                      {profile.handle}
+                    </span>
+                    <span className="hidden sm:inline">
+                      {" "}· {profile.tier} ·{" "}
+                      <span className="tabular-nums">{profile.rankPoints.toLocaleString()} RP</span>
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <span className="relative flex h-2 w-2">
+                      <span
+                        className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60"
+                        style={{ background: "var(--color-calm)" }}
+                      />
+                      <span
+                        className="relative inline-flex rounded-full h-2 w-2"
+                        style={{ background: "var(--color-calm)" }}
+                      />
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.22em] text-fg-dim" style={{ fontWeight: 500 }}>
+                      Live
+                    </span>
+                  </div>
+                </div>
+
+                {/* Welcoming display */}
+                <h2
+                  className="text-fg"
+                  style={{
+                    fontSize: "clamp(26px, 3vw, 34px)",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.05,
+                    fontWeight: 500,
+                  }}
+                >
+                  Welcome back,{" "}
+                  <span className="text-fg-dim" style={{ fontWeight: 400 }}>
+                    Harnit.
+                  </span>
+                </h2>
+                <p className="mt-2 text-sm text-fg-dim max-w-md leading-relaxed">
+                  Coming off a {lastMatch.result === "victory" ? "win" : "tough match"} on{" "}
+                  <span className="text-fg">{lastMatch.map}</span>. Peak window opens{" "}
+                  <span className="text-fg whitespace-nowrap">{aggregates.peakPerformanceWindow}</span>.
+                </p>
+
+                {/* Vitals — the three body signals only */}
+                <div className="mt-6 flex items-start gap-6 sm:gap-10">
+                  <Stat label="HRV" value={<LiveValue base={72} amplitude={3} />} unit="ms" dot="var(--color-calm)" />
+                  <Stat label="HR" value={<LiveValue base={68} amplitude={4} />} unit="bpm" dot="var(--color-calm)" />
+                  <Stat label="Calm" value="65" unit="%" dot="var(--color-calm)" />
+                </div>
+
+                {/* Action row */}
+                <div className="mt-7 flex flex-wrap items-center gap-3">
+                  <Link
+                    href="/app/live"
+                    className="px-5 py-2 rounded-md text-sm text-white transition-transform hover:-translate-y-px"
+                    style={{ background: "var(--color-app-action)", fontWeight: 500 }}
+                  >
+                    Launch Crucible Ops
+                  </Link>
+                  <Link
+                    href="/app/library"
+                    className="px-5 py-2 rounded-md text-sm text-fg-dim hover:text-fg transition-colors"
+                    style={{ fontWeight: 500 }}
+                  >
+                    Browse library
+                  </Link>
+                </div>
+              </div>
             </div>
 
-            {/* ECG line — subtle, just a thin signal trace */}
-            <div className="mt-5 h-6 -mx-2">
-              <EcgLine
-                stroke="var(--color-calm)"
-                strokeWidth={1}
-                amplitude={0.5}
-                speed={18}
-                className="w-full h-full opacity-60"
+            {/* RIGHT — featured game tile with looping gameplay under the text */}
+            <Link
+              href="/app/live"
+              className="group relative rounded-2xl overflow-hidden flex flex-col justify-end p-6 min-h-[220px] lg:min-h-0"
+              style={{ border: "1px solid var(--color-app-line)" }}
+            >
+              {/* Looping gameplay snapshot — low opacity under text */}
+              <video
+                aria-hidden
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/marketing/adaptive-overlay-base-poster.jpg"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ opacity: 0.35 }}
+                src="/marketing/adaptive-overlay-base.mp4"
               />
-            </div>
-
-            {/* Action row */}
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <Link
-                href="/app/live"
-                className="px-5 py-2 rounded-md text-sm text-white transition-transform hover:-translate-y-px"
-                style={{ background: "var(--color-app-action)", fontWeight: 500 }}
-              >
-                Launch Crucible Ops
-              </Link>
-              <Link
-                href="/app/library"
-                className="px-5 py-2 rounded-md text-sm text-fg-dim hover:text-fg transition-colors"
-                style={{ fontWeight: 500 }}
-              >
-                Browse library
-              </Link>
-            </div>
-            </div>{/* /z-10 content wrapper */}
+              {/* Legibility wash — dark at the bottom, red tint up top */}
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(255,51,68,0.10) 0%, rgba(8,8,10,0.25) 40%, rgba(8,8,10,0.85) 100%)",
+                }}
+              />
+              <div className="relative z-10">
+                <div
+                  className="text-[10px] uppercase tracking-[0.2em] mb-2"
+                  style={{ color: "#ff8791", fontWeight: 600 }}
+                >
+                  ● Continue · Primary
+                </div>
+                <div
+                  className="text-fg"
+                  style={{ fontSize: "24px", letterSpacing: "-0.02em", lineHeight: 1.05, fontWeight: 600 }}
+                >
+                  Crucible Ops
+                </div>
+                <p className="mt-1 text-xs text-fg-dim">Tactical FPS · Last played 2h ago</p>
+                <div
+                  className="mt-4 inline-flex items-center gap-2 rounded-md px-4 py-2 text-[13px] transition-transform group-hover:-translate-y-px"
+                  style={{ background: "#f5f5f7", color: "#0a0a0b", fontWeight: 600 }}
+                >
+                  ▶ Resume
+                </div>
+              </div>
+            </Link>
           </div>
         </section>
 
@@ -432,40 +464,42 @@ function CardLabel({ children }: { children: React.ReactNode }) {
  * dashboard. Borderless, whitespace-separated. Uppercase label · big
  * tabular value · unit · small status tag underneath.
  */
+/**
+ * Stat — a single cell in the horizontal vitals strip.
+ * Colored status dot + dim label on one line, then big white value + unit.
+ * The dot color encodes state (green = healthy body signal, gray = device
+ * info), which removes the need for redundant word-tags underneath.
+ */
 function Stat({
   label,
   value,
   unit,
-  tag,
-  tagColor,
+  dot,
 }: {
   label: string;
   value: React.ReactNode;
   unit: string;
-  tag: string;
-  tagColor: string;
+  dot: string;
 }) {
   return (
     <div>
-      <div className="text-[10px] uppercase tracking-[0.22em] text-fg-dim mb-1">
-        {label}
+      <div className="flex items-center gap-1.5 mb-2">
+        <span className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: dot }} />
+        <span className="text-[10px] uppercase tracking-[0.2em] text-fg-dim">{label}</span>
       </div>
-      <div className="flex items-baseline gap-1.5">
+      <div className="flex items-baseline gap-1">
         <span
           className="text-fg tabular-nums"
           style={{
-            fontSize: "clamp(22px, 2.4vw, 28px)",
+            fontSize: "clamp(24px, 2.6vw, 30px)",
             lineHeight: 1,
             letterSpacing: "-0.02em",
-            fontWeight: 500,
+            fontWeight: 600,
           }}
         >
           {value}
         </span>
-        <span className="text-xs text-fg-dim tabular-nums">{unit}</span>
-      </div>
-      <div className="mt-1 text-[10px] uppercase tracking-[0.18em]" style={{ color: tagColor, fontWeight: 500 }}>
-        {tag}
+        <span className="text-xs text-fg-mute tabular-nums">{unit}</span>
       </div>
     </div>
   );
