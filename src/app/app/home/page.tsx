@@ -83,7 +83,8 @@ export default function HomePage() {
                       {profile.handle}
                     </span>
                     <span className="hidden sm:inline">
-                      {" "}· {profile.tier} ·{" "}
+                      {" "}·{" "}
+                      <span style={{ color: "#8ab8ff", fontWeight: 500 }}>{profile.tier}</span> ·{" "}
                       <span className="tabular-nums">{profile.rankPoints.toLocaleString()} RP</span>
                     </span>
                   </div>
@@ -98,7 +99,7 @@ export default function HomePage() {
                         style={{ background: "var(--color-calm)" }}
                       />
                     </span>
-                    <span className="text-[11px] uppercase tracking-[0.22em] text-fg-dim" style={{ fontWeight: 500 }}>
+                    <span className="text-[11px] uppercase tracking-[0.22em]" style={{ color: "var(--color-calm)", fontWeight: 500 }}>
                       Live
                     </span>
                   </div>
@@ -115,14 +116,27 @@ export default function HomePage() {
                   }}
                 >
                   Welcome back,{" "}
-                  <span className="text-fg-dim" style={{ fontWeight: 400 }}>
+                  <span
+                    style={{
+                      fontWeight: 500,
+                      background: "linear-gradient(105deg, #ff8791 0%, var(--color-app-accent) 90%)",
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                      color: "transparent",
+                    }}
+                  >
                     Harnit.
                   </span>
                 </h2>
                 <p className="mt-2 text-sm text-fg-dim max-w-md leading-relaxed">
-                  Coming off a {lastMatch.result === "victory" ? "win" : "tough match"} on{" "}
-                  <span className="text-fg">{lastMatch.map}</span>. Peak window opens{" "}
-                  <span className="text-fg whitespace-nowrap">{aggregates.peakPerformanceWindow}</span>.
+                  Coming off a{" "}
+                  <span style={{ color: lastMatch.result === "victory" ? "var(--color-calm)" : "#ff8791", fontWeight: 500 }}>
+                    {lastMatch.result === "victory" ? "win" : "tough match"}
+                  </span>{" "}
+                  on <span className="text-fg">{lastMatch.map}</span>. Peak window opens{" "}
+                  <span className="whitespace-nowrap" style={{ color: "var(--color-calm)", fontWeight: 500 }}>
+                    {aggregates.peakPerformanceWindow}
+                  </span>.
                 </p>
 
                 {/* Vitals — the three body signals only */}
@@ -208,13 +222,18 @@ export default function HomePage() {
         <section className="mb-10">
           <div className="flex items-baseline justify-between mb-4">
             <h2
-              className="text-fg"
+              className="flex items-center gap-2.5 text-fg"
               style={{
                 fontSize: "clamp(18px, 1.8vw, 22px)",
                 letterSpacing: "-0.025em",
                 fontWeight: 500,
               }}
             >
+              <span
+                aria-hidden
+                className="inline-block w-1 rounded-full"
+                style={{ height: "1.1em", background: "var(--color-app-accent)" }}
+              />
               Active games
             </h2>
             <Link href="/app/library" className="text-xs text-fg-dim hover:text-fg transition-colors">
@@ -232,13 +251,18 @@ export default function HomePage() {
         <section className="mb-10">
           <div className="flex items-baseline justify-between mb-4">
             <h2
-              className="text-fg"
+              className="flex items-center gap-2.5 text-fg"
               style={{
                 fontSize: "clamp(18px, 1.8vw, 22px)",
                 letterSpacing: "-0.025em",
                 fontWeight: 500,
               }}
             >
+              <span
+                aria-hidden
+                className="inline-block w-1 rounded-full"
+                style={{ height: "1.1em", background: "var(--color-app-accent)" }}
+              />
               This week
             </h2>
             <Link href="/app/insights" className="text-xs text-fg-dim hover:text-fg transition-colors">
@@ -286,7 +310,7 @@ export default function HomePage() {
             >
               <div className="flex items-center gap-2 min-w-0">
                 <span className="text-[10px] uppercase tracking-[0.18em] text-fg-dim shrink-0">Peak</span>
-                <span className="text-fg tabular-nums truncate" style={{ fontWeight: 500 }}>
+                <span className="tabular-nums truncate" style={{ fontWeight: 500, color: "var(--color-calm)" }}>
                   {aggregates.peakPerformanceWindow}
                 </span>
               </div>
@@ -319,13 +343,18 @@ export default function HomePage() {
         <section className="mb-10">
           <div className="flex items-baseline justify-between mb-4">
             <h2
-              className="text-fg"
+              className="flex items-center gap-2.5 text-fg"
               style={{
                 fontSize: "clamp(18px, 1.8vw, 22px)",
                 letterSpacing: "-0.025em",
                 fontWeight: 500,
               }}
             >
+              <span
+                aria-hidden
+                className="inline-block w-1 rounded-full"
+                style={{ height: "1.1em", background: "var(--color-app-accent)" }}
+              />
               Recent matches
             </h2>
             <Link href="/app/sessions" className="text-xs text-fg-dim hover:text-fg transition-colors">View all →</Link>
@@ -489,12 +518,13 @@ function Stat({
       </div>
       <div className="flex items-baseline gap-1">
         <span
-          className="text-fg tabular-nums"
+          className="tabular-nums"
           style={{
             fontSize: "clamp(24px, 2.6vw, 30px)",
             lineHeight: 1,
             letterSpacing: "-0.02em",
             fontWeight: 600,
+            color: dot,
           }}
         >
           {value}
@@ -534,8 +564,8 @@ function MiniKPI({
       </div>
       <div className="flex items-baseline gap-2 mb-3">
         <span
-          className="text-fg tabular-nums"
-          style={{ fontSize: "clamp(20px, 2.2vw, 26px)", letterSpacing: "-0.02em", fontWeight: 500 }}
+          className="tabular-nums"
+          style={{ fontSize: "clamp(20px, 2.2vw, 26px)", letterSpacing: "-0.02em", fontWeight: 500, color }}
         >
           {value}
         </span>
